@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/screens/personal/widgets/topContainers.dart';
+import 'package:sadapayclone/screens/personal/widgets/transactionlistwidget.dart';
 
 class PersonalScreen extends StatefulWidget {
   const PersonalScreen({super.key});
@@ -11,19 +12,18 @@ class PersonalScreen extends StatefulWidget {
 class _PersonalScreenState extends State<PersonalScreen> {
   @override
   Widget build(BuildContext context) {
-    return   SafeArea(
+    return   const SafeArea(
       child: Scaffold(
        
         body: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             
             children: [
-              const SizedBox(height: 40,),
-              const TopContainer(),
-              Expanded(child: Container(
-
-              ))
+              SizedBox(height: 40,),
+              TopContainer(),
+               SizedBox(height: 20,),
+              TransactionList()
             ],
           ),
         ),
