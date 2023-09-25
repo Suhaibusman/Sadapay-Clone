@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
 import 'package:sadapayclone/data/transaction_record.dart';
+import 'package:sadapayclone/screens/personal/widgets/detailedtransaction.dart';
 
 class TransactionList extends StatefulWidget {
   const TransactionList({super.key});
@@ -75,6 +76,12 @@ class _TransactionListState extends State<TransactionList> {
               ),);
       }
   } 
+
+  void navigatetonext(int index){
+      setState(() {
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailedTransactionPage(detailedtransaction: TransactionPart(transactiondate: transaction[index].transactiondate, senderbankname: transaction[index].senderbankname, sendername: transaction[index].sendername, amount: transaction[index].amount, recievername: transaction[index].recievername, transactiontime: transaction[index].transactiontime, recieverbankname: transaction[index].recieverbankname, sendernumber: transaction[index].sendername, recievernumber: transaction[index].recievernumber, refrencenumber: transaction[index].refrencenumber, servicecharges: transaction[index].servicecharges, isRecieved: transaction[index].isRecieved, isSent: transaction[index].isSent)),));
+      });
+  }
   @override
   Widget build(BuildContext context) {
     _getTransactionPart();
@@ -85,19 +92,22 @@ class _TransactionListState extends State<TransactionList> {
         child: ListView.builder(
           itemCount: transaction.length,
           itemBuilder: (context, index) {
-          return ListTile(
-              leading: CircleAvatar(
-                  radius: 25,
-                  backgroundColor: backgroundcolor(index),
-                  child: Image.asset(checksentorrecieved(index)),
-              ),
-              title: recivernameorsender(index),
-               subtitle: Text(transaction[index].transactiontime , style: const TextStyle(
-                fontFamily: "Brandon" ,
-                fontSize: 12,
-                fontWeight: FontWeight.w200
-              ),),
-              trailing: amountrecivedorsent(index),
+          return GestureDetector(
+            onTap: (){},
+            child: ListTile(
+                leading: CircleAvatar(
+                    radius: 25,
+                    backgroundColor: backgroundcolor(index),
+                    child: Image.asset(checksentorrecieved(index)),
+                ),
+                title: recivernameorsender(index),
+                 subtitle: Text(transaction[index].transactiontime , style: const TextStyle(
+                  fontFamily: "Brandon" ,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w200
+                ),),
+                trailing: amountrecivedorsent(index),
+            ),
           );
         },),
 
