@@ -93,7 +93,9 @@ class _TransactionListState extends State<TransactionList> {
           itemCount: transaction.length,
           itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: (){},
+            onTap: (){
+              navigatetonext(index);
+            },
             child: ListTile(
                 leading: CircleAvatar(
                     radius: 25,
