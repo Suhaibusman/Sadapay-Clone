@@ -87,7 +87,10 @@ class _TransactionListState extends State<TransactionList> {
     _getTransactionPart();
     return Expanded(child: Container(
       decoration: const BoxDecoration(
-        color: Colors.grey
+          borderRadius:  BorderRadius.only(
+          topLeft: Radius.circular(30.0), // Adjust the radius as needed
+          topRight: Radius.circular(30.0),),
+        // color: Colors.grey
       ),
         child: ListView.builder(
           itemCount: transaction.length,
