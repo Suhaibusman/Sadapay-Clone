@@ -131,7 +131,9 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
                       fontWeight: FontWeight.normal,
                       color: Colors.white
             
-                    ),),Text(widget.detailedtransaction.sendername , style: const TextStyle(
+                    ),),
+                     const SizedBox(height: 20,),
+                    Text(widget.detailedtransaction.sendername , style: const TextStyle(
                       fontFamily: "Brandon" ,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -176,7 +178,7 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Container(
-              height: MediaQuery.of(context).size.height*0.25,
+              height: MediaQuery.of(context).size.height*0.35,
               width: MediaQuery.of(context).size.width,
                decoration:  BoxDecoration(
                 color: Colors.white,
@@ -194,7 +196,28 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
                         color: Colors.grey
                           
                       ),),
-                       Text(widget.detailedtransaction.recieverbankname, style: const TextStyle(
+                       Text(widget.detailedtransaction.senderbankname, style: const TextStyle(
+                        fontFamily: "Brandon" ,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        
+                          
+                      ),),
+                      Text(widget.detailedtransaction.sendernumber, style: const TextStyle(
+                        fontFamily: "Brandon" ,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        
+                          
+                      ),),  const SizedBox(height: 20,),
+                       const Text("To", style: TextStyle(
+                        fontFamily: "Brandon" ,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey
+                          
+                      ),),
+                      Text(widget.detailedtransaction.recieverbankname, style: const TextStyle(
                         fontFamily: "Brandon" ,
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
@@ -208,27 +231,10 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
                         
                           
                       ),),
-                       const Text("To", style: TextStyle(
-                        fontFamily: "Brandon" ,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.grey
-                          
-                      ),),
-                      Text(widget.detailedtransaction.senderbankname, style: const TextStyle(
-                        fontFamily: "Brandon" ,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                        
-                          
-                      ),),
-                      Text(widget.detailedtransaction.sendernumber, style: const TextStyle(
-                        fontFamily: "Brandon" ,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                        
-                          
-                      ),),
+
+                       const SizedBox(height: 20,),
+                            const Divider(),
+                        const SizedBox(height: 20,),
                        const Text("Refrence number", style: TextStyle(
                         fontFamily: "Brandon" ,
                         fontSize: 16,
@@ -251,10 +257,10 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
           Padding(
             padding: const EdgeInsets.only(left: 20,right: 20 ,bottom: 20),
             child: Container(
-            height: MediaQuery.of(context).size.height*0.2,
+            height: MediaQuery.of(context).size.height*0.1,
               width: MediaQuery.of(context).size.width,
                decoration:  BoxDecoration(
-                color: const Color.fromARGB(255, 126, 126, 126),
+               color: Colors.white,
                   borderRadius:  BorderRadius.circular(20)
               , ),
               child:  Padding(
@@ -268,7 +274,7 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
                         color: Colors.grey
                           
                       ),),
-                      Text("Rs. ${widget.detailedtransaction.servicecharges.toString()}", style: const TextStyle(
+                      Text("Rs. ${widget.detailedtransaction.servicecharges.toString()} 🎉", style: const TextStyle(
                         fontFamily: "Brandon" ,
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
