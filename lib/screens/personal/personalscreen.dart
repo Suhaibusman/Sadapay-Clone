@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/screens/personal/widgets/topContainers.dart';
 import 'package:sadapayclone/screens/personal/widgets/transactionlistwidget.dart';
+import 'package:sadapayclone/widgets/BottomNavBar/navbar.dart';
 
 class PersonalScreen extends StatefulWidget {
   const PersonalScreen({super.key});
@@ -27,6 +28,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
             ],
           ),
         ),
+        bottomNavigationBar: NavBar(page: 0),
       ),
     );
   }
