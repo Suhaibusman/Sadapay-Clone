@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/screens/more/morescreen.dart';
+import 'package:sadapayclone/screens/payment/Bills%20and%20utilities/bills_screen.dart';
 import 'package:sadapayclone/screens/payment/mobiletopup/mobiletopup.dart';
 import 'package:sadapayclone/screens/personal/personalscreen.dart';
 
@@ -47,7 +48,11 @@ class _NavBarState extends State<NavBar> {
                 ),),
                 //  const SizedBox(height: 20,),
             InkWell(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const MobileTopUp(),)),
+              onTap: () {
+              setState(() {
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MobileTopUp(),));
+              });
+              },
               child: Row(
                 children: [
                   Container(
@@ -87,40 +92,47 @@ class _NavBarState extends State<NavBar> {
               thickness: 2,
             ),
             const SizedBox(height: 20,),
-                 Row(
-              children: [
-                Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)), 
-                    color: MyColors.pinkColor.withOpacity(0.2)
-                  ),
-                  child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
-              Padding(
-                padding: const EdgeInsets.only(left:20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                        const Text("Bills & utilities" , style: TextStyle(
-                    fontFamily: "Brandon" ,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black
-                  ),),
-                     Text("Pay for your utilities." , style: TextStyle(
-                    fontFamily: "Brandon" ,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey[600]
-                  ),),
-                  ],
-                ),
-              )
-              
-              ],
-            ),
+                 InkWell(
+                  onTap: () {
+              setState(() {
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => const BillsScreen(),));
+              });
+              },
+                   child: Row(
+                               children: [
+                                 Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)), 
+                      color: MyColors.pinkColor.withOpacity(0.2)
+                    ),
+                    child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
+                               Padding(
+                                 padding: const EdgeInsets.only(left:20),
+                                 child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                          const Text("Bills & utilities" , style: TextStyle(
+                      fontFamily: "Brandon" ,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black
+                    ),),
+                       Text("Pay for your utilities." , style: TextStyle(
+                      fontFamily: "Brandon" ,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey[600]
+                    ),),
+                    ],
+                                 ),
+                               )
+                               
+                               ],
+                             ),
+                 ),
             const SizedBox(height: 20,),
             const Divider(
               thickness: 2,

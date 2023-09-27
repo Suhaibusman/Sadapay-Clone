@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
-import 'package:sadapayclone/screens/payment/mobiletopup/widget/balanceload.dart';
+import 'package:sadapayclone/screens/payment/Bills%20and%20utilities/widget/bill_list.dart';
 
-class MobileTopUp extends StatefulWidget {
-  const MobileTopUp({super.key});
+
+class BillsScreen extends StatefulWidget {
+  const BillsScreen({super.key});
 
   @override
-  State<MobileTopUp> createState() => _MobileTopUpState();
+  State<BillsScreen> createState() => _BillsScreenState();
 }
 
-class _MobileTopUpState extends State<MobileTopUp> {
+class _BillsScreenState extends State<BillsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                   InkWell(
                     onTap: (){
                       setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const BalanceScreen(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const BillList (),));
                       });
                     },
                     child: Container(
@@ -54,14 +55,14 @@ class _MobileTopUpState extends State<MobileTopUp> {
                         borderRadius: const BorderRadius.all(Radius.circular(20)), 
                         color: MyColors.pinkColor.withOpacity(0.2)
                       ),
-                      child:  const Icon(Icons.send_to_mobile ,color: MyColors.pinkColor, size: 40,)),
+                      child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
                                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                            const Text("New Mobile top up" , style: TextStyle(
+                            const Text("New bill payment" , style: TextStyle(
                         fontFamily: "Brandon" ,
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
@@ -69,7 +70,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                       ),),
                          SizedBox(
                           width: MediaQuery.of(context).size.width*0.6,
-                           child: Text("Top up any prepaid mobile network operator" , style: TextStyle(
+                           child: Text("Pay your bills to 900+ companies in Pakistan" , style: TextStyle(
                            
                                                fontFamily: "Brandon" ,
                                                fontSize: 18,
