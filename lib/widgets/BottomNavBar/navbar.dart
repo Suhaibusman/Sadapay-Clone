@@ -37,16 +37,17 @@ class _NavBarState extends State<NavBar> {
       child:  Padding(
         padding: const EdgeInsets.all(20 ,),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20,),
+            // const SizedBox(height: 20,),
             const Text("Payments" , style: TextStyle(
                   fontFamily: "Brandon" ,
                   fontSize: 35,
                   fontWeight: FontWeight.w500,
                   color: Colors.black
                 ),),
-                //  const SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
             InkWell(
               onTap: () {
               setState(() {
@@ -64,20 +65,20 @@ class _NavBarState extends State<NavBar> {
                     ),
                     child:  const Icon(Icons.send_to_mobile ,color: MyColors.pinkColor, size: 40,)),
                 Padding(
-                  padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(left: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                           const Text("Mobile top up" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                       color: Colors.black
                     ),),
                        Text("Instantly top up your mobile." , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Colors.grey[600]
                     ),),
@@ -91,7 +92,7 @@ class _NavBarState extends State<NavBar> {
             const Divider(
               thickness: 2,
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 10,),
                  InkWell(
                   onTap: () {
               setState(() {
@@ -116,13 +117,13 @@ class _NavBarState extends State<NavBar> {
                     children: [
                           const Text("Bills & utilities" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                       color: Colors.black
                     ),),
                        Text("Pay for your utilities." , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Colors.grey[600]
                     ),),
@@ -133,7 +134,7 @@ class _NavBarState extends State<NavBar> {
                                ],
                              ),
                  ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 10,),
             const Divider(
               thickness: 2,
             ),
@@ -148,20 +149,20 @@ class _NavBarState extends State<NavBar> {
                   ),
                   child:  const Icon(Icons.remove_from_queue_rounded ,color: MyColors.pinkColor, size: 40,)),
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(left: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                         const Text("Money requests" , style: TextStyle(
                     fontFamily: "Brandon" ,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                     color: Colors.black
                   ),),
                      Text("Review pending money requests." , style: TextStyle(
                     fontFamily: "Brandon" ,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey[600]
                   ),),

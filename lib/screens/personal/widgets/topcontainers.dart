@@ -22,7 +22,7 @@ class _TopContainerState extends State<TopContainer> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 10),
                     child: Column(
                     
                       children: [
@@ -37,7 +37,7 @@ class _TopContainerState extends State<TopContainer> {
                     const SizedBox(height: 15,),
                     Container(
                       height: MediaQuery.sizeOf(context).height*0.14,
-                      width: MediaQuery.sizeOf(context).width*0.35,
+                      width: MediaQuery.sizeOf(context).width*0.36,
                       decoration: BoxDecoration(
                         color: MyColors.pinkColor,
                         borderRadius: BorderRadius.circular(20)

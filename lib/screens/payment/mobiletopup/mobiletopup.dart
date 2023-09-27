@@ -25,7 +25,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                    const SizedBox(height: 20,),
   const Text("Mobile top up" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 35,
+                      fontSize: 30,
                       // fontWeight: FontWeight.w500,
                       color: Colors.black
                     ),),
@@ -56,14 +56,14 @@ class _MobileTopUpState extends State<MobileTopUp> {
                       ),
                       child:  const Icon(Icons.send_to_mobile ,color: MyColors.pinkColor, size: 40,)),
                                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.only(left:20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                             const Text("New Mobile top up" , style: TextStyle(
                         fontFamily: "Brandon" ,
-                        fontSize: 25,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                         color: Colors.black
                       ),),
@@ -72,7 +72,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                            child: Text("Top up any prepaid mobile network operator" , style: TextStyle(
                            
                                                fontFamily: "Brandon" ,
-                                               fontSize: 18,
+                                               fontSize: 16,
                                                fontWeight: FontWeight.w500,
                                                color: Colors.grey[600]
                                              ),),
