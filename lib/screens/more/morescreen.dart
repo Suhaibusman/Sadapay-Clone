@@ -11,8 +11,16 @@ class MoreScreen extends StatefulWidget {
 class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: NavBar(page: 2),
+    return  Scaffold(
+
+      body: Column(
+        children: [
+          Container(
+
+          )
+        ],
+      ),
+      bottomNavigationBar: const NavBar(page: 2),
     );
   }
 }

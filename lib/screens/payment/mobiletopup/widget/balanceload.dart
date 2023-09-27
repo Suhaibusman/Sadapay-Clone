@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
+import 'package:sadapayclone/screens/payment/mobiletopup/widget/enteramount.dart';
 
 class BalanceScreen extends StatefulWidget {
   const BalanceScreen({Key? key}) : super(key: key);
@@ -64,6 +67,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          
           children: [
             const Text(
               "Mobile number",
@@ -77,6 +81,8 @@ class _BalanceScreenState extends State<BalanceScreen> {
             SizedBox(
               height: 45,
               child: TextField(
+                  keyboardType: TextInputType.number,
+  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 controller: numberTextfield,
                 onChanged: (value) {
                   setState(() {
@@ -85,6 +91,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                   searchNetworkProvider(value);
                 },
                 decoration: InputDecoration(
+                  hintText: "03xxxxxxxxx",
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       width: 2.5,
@@ -92,6 +99,13 @@ class _BalanceScreenState extends State<BalanceScreen> {
                     ),
                     borderRadius: BorderRadius.circular(50.0),
                   ),
+                   focusedBorder: OutlineInputBorder( // Customize the focused border here
+      borderSide: const BorderSide(
+        width: 2.5,
+        color: Colors.black, // Change the color when focused
+      ),
+      borderRadius: BorderRadius.circular(50.0),
+    ),
                 ),
               ),
             ),
@@ -110,10 +124,30 @@ class _BalanceScreenState extends State<BalanceScreen> {
                       ? AssetImage(networkProviderData![1] ,)
                       : const AssetImage(''), // Provide a default image if null
                 ),
-                title: Text(numberTextfield.text, style: const TextStyle(fontSize: 18)),
+                title: Text(numberTextfield.text, style: const TextStyle(fontSize: 18 ,fontWeight: FontWeight.bold)),
                 subtitle: Text(networkProvider, style: const TextStyle(fontSize: 18)), // Display the network provider name
               ),
             ),
+            InkWell(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) => const EnterAmountScreen(),)),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: MyColors.pinkColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text("Continue" ,  style: TextStyle(
+                    fontFamily: "Brandon",
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),), Icon(Icons.arrow_forward_rounded , color: Colors.white,) ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
