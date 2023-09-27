@@ -46,14 +46,14 @@ class _TransactionListState extends State<TransactionList> {
       return  Text(transaction[index].recievername , style: const TextStyle(
                 fontFamily: "Brandon" ,
                 fontSize: 16,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.w400
               ),);
       
       } else {
       return  Text(transaction[index].sendername , style: const TextStyle(
                 fontFamily: "Brandon" ,
                 fontSize: 16,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.w400
               ),);
       }
   }
@@ -109,7 +109,7 @@ class _TransactionListState extends State<TransactionList> {
                  subtitle: Text(transaction[index].transactiontime , style: const TextStyle(
                   fontFamily: "Brandon" ,
                   fontSize: 12,
-                  fontWeight: FontWeight.w200
+                  fontWeight: FontWeight.w300
                 ),),
                 trailing: amountrecivedorsent(index),
             ),

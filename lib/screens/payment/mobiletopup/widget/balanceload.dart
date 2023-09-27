@@ -66,88 +66,96 @@ class _BalanceScreenState extends State<BalanceScreen> {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Mobile number",
-              style: TextStyle(
-                fontFamily: "Brandon",
-                fontSize: 16,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 20,),
             SizedBox(
-              height: 45,
-              child: TextField(
-                  keyboardType: TextInputType.number,
-  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                controller: numberTextfield,
-                onChanged: (value) {
-                  setState(() {
-                    phoneNumber = value;
-                  });
-                  searchNetworkProvider(value);
-                },
-                decoration: InputDecoration(
-                  hintText: "03xxxxxxxxx",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 2.5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
+                children: [
+                  const Text(
+                    "Mobile number",
+                    style: TextStyle(
+                      fontFamily: "Brandon",
+                      fontSize: 16,
                       color: Colors.black,
                     ),
-                    borderRadius: BorderRadius.circular(50.0),
                   ),
-                   focusedBorder: OutlineInputBorder( // Customize the focused border here
-      borderSide: const BorderSide(
-        width: 2.5,
-        color: Colors.black, // Change the color when focused
-      ),
-      borderRadius: BorderRadius.circular(50.0),
-    ),
+                  const SizedBox(height: 20,),
+                  SizedBox(
+                    height: 45,
+                    child: TextField(
+                        keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      controller: numberTextfield,
+                      onChanged: (value) {
+                        setState(() {
+                          phoneNumber = value;
+                        });
+                        searchNetworkProvider(value);
+                      },
+                      decoration: InputDecoration(
+                        hintText: "03xxxxxxxxx",
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.5,
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                         focusedBorder: OutlineInputBorder( // Customize the focused border here
+                  borderSide: const BorderSide(
+              width: 2.5,
+              color: Colors.black, // Change the color when focused
+                  ),
+                  borderRadius: BorderRadius.circular(50.0),
                 ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20,),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    height: 80,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        backgroundImage: networkProviderData != null
+                            ? AssetImage(networkProviderData![1] ,)
+                            : const AssetImage('assets/images/networkicon.png'), // Provide a default image if null
+                      ),
+                      title: Text(numberTextfield.text, style: const TextStyle(fontSize: 18 ,fontWeight: FontWeight.bold)),
+                      subtitle: Text(networkProvider, style: const TextStyle(fontSize: 18)), // Display the network provider name
+                    ),
+                  ),
+                 
+                ],
               ),
             ),
-            const SizedBox(height: 20,),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20)
-              ),
-              height: 80,
-              width: MediaQuery.of(context).size.width,
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: networkProviderData != null
-                      ? AssetImage(networkProviderData![1] ,)
-                      : const AssetImage(''), // Provide a default image if null
-                ),
-                title: Text(numberTextfield.text, style: const TextStyle(fontSize: 18 ,fontWeight: FontWeight.bold)),
-                subtitle: Text(networkProvider, style: const TextStyle(fontSize: 18)), // Display the network provider name
-              ),
-            ),
-            InkWell(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) => const EnterAmountScreen(),)),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: MyColors.pinkColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Continue" ,  style: TextStyle(
-                    fontFamily: "Brandon",
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),), Icon(Icons.arrow_forward_rounded , color: Colors.white,) ],
-                  ),
-                ),
-              ),
-            )
+             InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) => const EnterAmountScreen(),)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: MyColors.pinkColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [Text("Continue" ,  style: TextStyle(
+                          fontFamily: "Brandon",
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),), Icon(Icons.arrow_forward_rounded , color: Colors.white,) ],
+                        ),
+                      ),
+                    ),
+                  )
           ],
         ),
       ),
