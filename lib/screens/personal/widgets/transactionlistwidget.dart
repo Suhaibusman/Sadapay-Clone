@@ -79,7 +79,7 @@ class _TransactionListState extends State<TransactionList> {
 
   void navigatetonext(int index){
       setState(() {
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailedTransactionPage(detailedtransaction: TransactionPart(transactiondate: transaction[index].transactiondate, senderbankname: transaction[index].senderbankname, sendername: transaction[index].sendername, amount: transaction[index].amount, recievername: transaction[index].recievername, transactiontime: transaction[index].transactiontime, recieverbankname: transaction[index].recieverbankname, sendernumber: transaction[index].sendernumber, recievernumber: transaction[index].recievernumber, refrencenumber: transaction[index].refrencenumber, servicecharges: transaction[index].servicecharges, isRecieved: transaction[index].isRecieved, isSent: transaction[index].isSent)),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailedTransactionPage(detailedTransaction: TransactionPart(transactiondate: transaction[index].transactiondate, senderbankname: transaction[index].senderbankname, sendername: transaction[index].sendername, amount: transaction[index].amount, recievername: transaction[index].recievername, transactiontime: transaction[index].transactiontime, recieverbankname: transaction[index].recieverbankname, sendernumber: transaction[index].sendernumber, recievernumber: transaction[index].recievernumber, refrencenumber: transaction[index].refrencenumber, servicecharges: transaction[index].servicecharges, isRecieved: transaction[index].isRecieved, isSent: transaction[index].isSent)),));
       });
   }
   @override
