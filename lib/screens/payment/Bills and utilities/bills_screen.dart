@@ -47,24 +47,27 @@ class _BillsScreenState extends State<BillsScreen> {
                       ),
                       child: Row(
                                   children: [
-                     const SizedBox(width: 20,),
-                    Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(20)), 
-                        color: MyColors.pinkColor.withOpacity(0.2)
-                      ),
-                      child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
+                    //  const SizedBox(width: 20,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(20)), 
+                          color: MyColors.pinkColor.withOpacity(0.2)
+                        ),
+                        child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
+                    ),
                                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.only(left:20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                             const Text("New bill payment" , style: TextStyle(
                         fontFamily: "Brandon" ,
-                        fontSize: 25,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                         color: Colors.black
                       ),),
@@ -73,7 +76,7 @@ class _BillsScreenState extends State<BillsScreen> {
                            child: Text("Pay your bills to 900+ companies in Pakistan" , style: TextStyle(
                            
                                                fontFamily: "Brandon" ,
-                                               fontSize: 18,
+                                               fontSize: 16,
                                                fontWeight: FontWeight.w500,
                                                color: Colors.grey[600]
                                              ),),

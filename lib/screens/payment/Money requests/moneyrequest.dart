@@ -17,23 +17,25 @@ class _MoneyRequestScreenState extends State<MoneyRequestScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(
+               SizedBox(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Icon(Icons.close),
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(Icons.close)),
                       ],
                     ) ,
-                      Text("Money requests" , style: TextStyle(
+                      const Text("Money requests" , style: TextStyle(
                                 fontFamily: "Brandon" ,
                                 fontSize: 30,
                                 // fontWeight: FontWeight.w500,
                                 color: Colors.black
                               ),),
-                                  SizedBox(height: 200,),
+                                  const SizedBox(height: 200,),
                   ],
                 ),
               ),
