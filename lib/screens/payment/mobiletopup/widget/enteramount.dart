@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class EnterAmountScreen extends StatefulWidget {
-  const EnterAmountScreen({super.key});
+    final String phoneNumber;
+  final String networkImageAsset;
+  final String networkProvider;
+  const EnterAmountScreen({super.key, required this.phoneNumber, required this.networkImageAsset, required this.networkProvider});
 
   @override
   State<EnterAmountScreen> createState() => _EnterAmountScreenState();

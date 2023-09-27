@@ -136,26 +136,33 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 ],
               ),
             ),
-             InkWell(
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) => const EnterAmountScreen(),)),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: MyColors.pinkColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text("Continue" ,  style: TextStyle(
-                          fontFamily: "Brandon",
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),), Icon(Icons.arrow_forward_rounded , color: Colors.white,) ],
+             Visibility(
+              visible: numberTextfield.text.length ==11,
+               child: InkWell(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) =>  EnterAmountScreen( 
+                        phoneNumber: phoneNumber, networkImageAsset: networkProviderData != null
+                ? networkProviderData![1]
+                : 'default_image_asset_path_here',
+                       networkProvider: networkProvider,),)),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: MyColors.pinkColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text("Continue" ,  style: TextStyle(
+                            fontFamily: "Brandon",
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),), Icon(Icons.arrow_forward_rounded , color: Colors.white,) ],
+                          ),
                         ),
                       ),
                     ),
-                  )
+             )
           ],
         ),
       ),
