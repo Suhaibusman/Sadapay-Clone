@@ -18,7 +18,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
       child: Scaffold(
        
         body: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.only(left:20, right: 20 ,top: 20),
           child: Column(
             
             children: [

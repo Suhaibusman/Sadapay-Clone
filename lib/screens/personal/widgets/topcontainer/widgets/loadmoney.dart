@@ -21,7 +21,7 @@ class _LoadMoneyState extends State<LoadMoney> {
     });
 
     // Automatically hide the "Copied" message after 5 seconds.
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         isCopied = false;
       });
@@ -36,8 +36,13 @@ class _LoadMoneyState extends State<LoadMoney> {
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
+              SizedBox(
+                child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -179,6 +184,7 @@ class _LoadMoneyState extends State<LoadMoney> {
                           ),
                         ),
                         const Row(
+                          
                           children: [
                             Icon(
                               Icons.copy,
@@ -198,6 +204,9 @@ class _LoadMoneyState extends State<LoadMoney> {
                       ],
                     ),
                   ),
+                ),
+              ),
+                  ],
                 ),
               ),
               if (isCopied)
