@@ -61,6 +61,7 @@ accountbalancecheck(){
         return Text('Amount of Rs. ${enteramount.text} has been added.');
       } 
   } catch (e) {
+    // ignore: avoid_print
     print(e); 
   }
  
