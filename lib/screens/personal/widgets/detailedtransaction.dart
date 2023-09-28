@@ -27,7 +27,7 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
     return Center(
       child: Text(
         widget.detailedTransaction.isSent ? "Money Sent" : "Money Received",
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: "Brandon",
           fontSize: 16,
           fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class _DetailedTransactionPageState extends State<DetailedTransactionPage> {
 
     return Text(
       amountText,
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: "Brandon",
         fontSize: 35,
         fontWeight: FontWeight.bold,

@@ -47,11 +47,11 @@ static List<TransactionPart> getTransactionPart(){
   );
   transaction.add(
 
-    TransactionPart(transactiondate: "20 September 2023", senderbankname: "Sadapay", sendername: "Muhammad Suhaib Usman", amount: 3500, recievername: "Muhammad Suhaib Usman", transactiontime: "5:20 PM", recieverbankname: "NayaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: false , isSent: true)
+    TransactionPart(transactiondate: "20 September 2023", senderbankname: "Sadapay", sendername: "Muhammad Saad Khan", amount: 3500, recievername: "Muhammad Suhaib Usman", transactiontime: "5:20 PM", recieverbankname: "NayaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: false , isSent: true)
   );
     transaction.add(
 
-    TransactionPart(transactiondate: "18 September 2023", senderbankname: "Sadapay", sendername: "Muhammad Suhaib Usman", amount: 500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "NayaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
+    TransactionPart(transactiondate: "18 September 2023", senderbankname: "Sadapay", sendername: "Muhammad amash", amount: 500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "NayaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
   );
   transaction.add(
 
@@ -59,11 +59,11 @@ static List<TransactionPart> getTransactionPart(){
   );
      transaction.add(
 
-    TransactionPart(transactiondate: "15 September 2023", senderbankname: "JazzCash", sendername: "Muhammad Suhaib Usman", amount: 2500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "SadaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
+    TransactionPart(transactiondate: "15 September 2023", senderbankname: "JazzCash", sendername: "Anas jawed", amount: 2500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "SadaPay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
   );
   transaction.add(
 
-    TransactionPart(transactiondate: "15 August 2023", senderbankname: "EasyPaisa", sendername: "Muhammad Suhaib Usman", amount: 3500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "Sadapay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
+    TransactionPart(transactiondate: "15 August 2023", senderbankname: "EasyPaisa", sendername: "Muhammad Saad Khan", amount: 3500, recievername: "Muhammad Suhaib Usman", transactiontime: "3:26 AM", recieverbankname: "Sadapay", sendernumber: "3112136120", recievernumber: "3112136120", refrencenumber: 920065, servicecharges: 0, isRecieved: true , isSent: false)
   ); 
  return transaction;
 }
