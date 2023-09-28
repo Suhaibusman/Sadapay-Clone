@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/loadmoney.dart';
+
 
 class TopContainer extends StatefulWidget {
   const TopContainer({super.key});
@@ -61,35 +63,40 @@ class _TopContainerState extends State<TopContainer> {
                     child: Column(
                     
                       children: [
-                        Container(
-                      height: MediaQuery.sizeOf(context).height*0.14,
-                      width: MediaQuery.sizeOf(context).width*0.35,
-                      decoration: BoxDecoration(
-                        color: MyColors.blueColor,
-                        borderRadius: BorderRadius.circular(20) ,
-                        
-                      ),
-                      child:  Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                           const Icon(Icons.arrow_downward_rounded ,color: Colors.white,),
-                            SizedBox(
-                              width: MediaQuery.sizeOf(context).height*0.10,
-                              child: const Text("Load Money", style:  TextStyle(
-                                              fontFamily: "Brandon" ,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white
-                                            )),
-                            ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const LoadMoney(),));
+                          },
+                          child: Container(
+                                              height: MediaQuery.sizeOf(context).height*0.14,
+                                              width: MediaQuery.sizeOf(context).width*0.35,
+                                              decoration: BoxDecoration(
+                          color: MyColors.blueColor,
+                          borderRadius: BorderRadius.circular(20) ,
                           
-                          ],
+                                              ),
+                                              child:  Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                             const Icon(Icons.arrow_downward_rounded ,color: Colors.white,),
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).height*0.10,
+                                child: const Text("Load Money", style:  TextStyle(
+                                                fontFamily: "Brandon" ,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.white
+                                              )),
+                              ),
+                            
+                            ],
+                          ),
+                                              ),
+                                            ),
                         ),
-                      ),
-                    ),
                     const SizedBox(height: 15,),
                     Container(
                       height: MediaQuery.sizeOf(context).height*0.14,

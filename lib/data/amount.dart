@@ -1,1 +1,2 @@
-int accountBalance = 200;
+int accountBalance = 5000;
+int totalLimit =4000000;
