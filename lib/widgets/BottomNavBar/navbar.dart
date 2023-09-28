@@ -200,13 +200,13 @@ class _NavBarState extends State<NavBar> {
         BottomNavigationBarItem(icon: Icon(Icons.more_vert_sharp), label: "More"),
       ],
       currentIndex: _page, // Use the private variable here
-      onTap: (pageindex) {
+      onTap: (pageindex) async {
         setState(() {
           _page = pageindex; // Update the private variable with the selected index
         });
 
         if (_page == 0) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalScreen()));
+        await  Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalScreen()));
         } else if (_page == 1) {
           // Show the bottom sheet when "Payments" tab is selected
         showModalBottomSheet<void>(
@@ -219,7 +219,7 @@ class _NavBarState extends State<NavBar> {
   },
 );
         } else if (_page == 2) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const MoreScreen()));
+         await Navigator.push(context, MaterialPageRoute(builder: (context) => const MoreScreen()));
         }
       },
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/screens/personal/personalscreen.dart';
 
 class EnterAmountScreen extends StatefulWidget {
   final String phoneNumber;
@@ -58,7 +59,28 @@ accountbalancecheck(){
   
       }
       else{
-        return Text('Amount of Rs. ${enteramount.text} has been added.');
+       accountBalance -= amount;
+       
+        return Text('Amount of Rs. $amount has been deducted. New Balance: Rs. $accountBalance');
+
+      } 
+  } catch (e) {
+    // ignore: avoid_print
+    print(e); 
+  }
+ 
+}
+titleselector(){
+  try {
+    final int amount = int.parse(enteramount.text); 
+    if(amount > accountBalance ) {
+      
+        return  const Text('Insufficient Balance');
+  
+      }
+      else{ 
+        return const Text('Top-Up Successful');
+
       } 
   } catch (e) {
     // ignore: avoid_print
@@ -87,6 +109,12 @@ accountbalancecheck(){
           ),
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+          onPressed: () async => await Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalScreen(),)),
+          icon: const Icon(Icons.close, color: Colors.black),
+        ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -176,7 +204,7 @@ accountbalancecheck(){
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text('Top-Up Successful'),
+                          title: titleselector(),
                           // content: Text('Amount of Rs. ${enteramount.text} has been added.'),
                          content: accountbalancecheck(),
                           actions: [

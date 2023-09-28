@@ -139,7 +139,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
              Visibility(
               visible: numberTextfield.text.length ==11 && networkProvider != "Unknown",
                child: InkWell(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder:  (context) =>  EnterAmountScreen( 
+                      onTap: () async => await Navigator.push(context, MaterialPageRoute(builder:  (context) =>  EnterAmountScreen( 
                         phoneNumber: phoneNumber, networkImageAsset: networkProviderData != null
                 ? networkProviderData![1]
                 : 'default_image_asset_path_here',

@@ -32,8 +32,8 @@ class _MobileTopUpState extends State<MobileTopUp> {
                         const SizedBox(height: 20,),
                   InkWell(
                     onTap: (){
-                      setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const BalanceScreen(),));
+                      setState( ()async {
+                     await   Navigator.push(context, MaterialPageRoute(builder: (context) => const BalanceScreen(),));
                       });
                     },
                     child: Container(
