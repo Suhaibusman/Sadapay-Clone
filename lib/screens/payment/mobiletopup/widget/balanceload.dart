@@ -123,6 +123,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                     width: MediaQuery.of(context).size.width,
                     child: ListTile(
                       leading: CircleAvatar(
+
                         backgroundColor: Colors.white,
                         backgroundImage: networkProviderData != null
                             ? AssetImage(networkProviderData![1] ,)
