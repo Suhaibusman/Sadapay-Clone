@@ -135,167 +135,170 @@ class _CardDetailsState extends State<CardDetails> {
               ),
               const SizedBox(height: 20), // Add spacing
               // Virtual Card Content
-             Visibility(
-                visible: isVirtualCardVisible,
-                child: Center(
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 20,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Image.asset(
-                                  Myimages.sadapaycolouredlogo,
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                Column(
+             Column(
+               children: [
+                 Visibility(
+                    visible: isVirtualCardVisible,
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 20,
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
                                   children: [
-                                    SizedBox(
-                                      width: 50,
-                                      child: Column(
-                                        children: [
-                                          const Text(
-                                            "••••••••••••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          Text(
-                                            getlastvirtualcardnumber(),
-                                            style: const TextStyle(
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 3.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Image.asset(
+                                          Myimages.sadapaycolouredlogo,
+                                          height: 50,
+                                          width: 50,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SizedBox(
+                                              width: 50,
+                                              child: Column(
+                                                children: [
+                                                  const Text(
+                                                    "••••••••••••",
+                                                    style: TextStyle(
+                                                      height: 2,
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      letterSpacing: 6.0, // Adjust the spacing as needed
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    getlastvirtualcardnumber(),
+                                                    style: const TextStyle(
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      letterSpacing: 3.0, // Adjust the spacing as needed
+                                                    ),
+                                                  ),
 
-                                          
-                                        ],
-                                      ),
+                                                  
+                                                ],
+                                              ),
+                                            ),
+                                            
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    
+                                    const SizedBox(height: 20,),
+                                    const Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [Text(
+                                                 "Exp date",
+                                                    style: TextStyle(
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      // Adjust the spacing as needed
+                                                    ),
+                                                  ),
+                                                   Text( " ••/••",
+                                                    style: TextStyle(
+                                                      height: 2,
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      letterSpacing: 6.0, // Adjust the spacing as needed
+                                                    ),
+                                                  ),
+                                                  ],),
+                                                     const SizedBox(height: 10,),
+                                    const Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [Text(
+                                                 "CVC",
+                                                    style: TextStyle(
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      // Adjust the spacing as needed
+                                                    ),
+                                                  ),
+                                                   Text( " •••",
+                                                    style: TextStyle(
+                                                      height: 2,
+                                                      color: Colors.grey,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.bold,
+                                                      letterSpacing: 6.0, // Adjust the spacing as needed
+                                                    ),
+                                                  ),
+                                                  ],),
+                                                  const SizedBox(height: 30,),
+                                               Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  InkWell(
+                                                        onTap: () {
+                                                          isCardDetailsVisible =true;
+                                                        },
+                                                    child: Container(
+                                                      height: 40,
+                                                      width: 80,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(20),
+                                                        color: Colors.grey
+                                                      ),
+                                                      child: const Center(
+                                                        child: Text("View",style: TextStyle(
+                                                         
+                                                          color: Colors.white,
+                                                           fontFamily: "Brandon",
+                                                           fontWeight: FontWeight.w400,
+                                                           fontSize: 16
+                                                         
+                                                        ),),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 10,),
+                                                     Container(
+                                                    height: 40,
+                                                    width: 80,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(20),
+                                                      color: Colors.grey
+                                                    ),
+                                                    child: const Center(
+                                                      child: Text("Copy",style: TextStyle(
+                                                       
+                                                        color: Colors.white,
+                                                         fontFamily: "Brandon",
+                                                         fontWeight: FontWeight.w400,
+                                                         fontSize: 16
+                                                       
+                                                      ),),
+                                                    ),
+                                                  )
+                                                ],
+                                               )   
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
-                            const SizedBox(height: 20,),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [Text(
-                                         "Exp date",
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                           Text( " ••/••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          ],),
-                                             const SizedBox(height: 10,),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [Text(
-                                         "CVC",
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                           Text( " •••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color: Colors.grey,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          ],),
-                                          const SizedBox(height: 30,),
-                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          InkWell(
-                                                onTap: () {
-                                                  isCardDetailsVisible =true;
-                                                },
-                                            child: Container(
-                                              height: 40,
-                                              width: 80,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(20),
-                                                color: Colors.grey
-                                              ),
-                                              child: const Center(
-                                                child: Text("View",style: TextStyle(
-                                                 
-                                                  color: Colors.white,
-                                                   fontFamily: "Brandon",
-                                                   fontWeight: FontWeight.w400,
-                                                   fontSize: 16
-                                                 
-                                                ),),
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(width: 10,),
-                                             Container(
-                                            height: 40,
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                              color: Colors.grey
-                                            ),
-                                            child: const Center(
-                                              child: Text("Copy",style: TextStyle(
-                                               
-                                                color: Colors.white,
-                                                 fontFamily: "Brandon",
-                                                 fontWeight: FontWeight.w400,
-                                                 fontSize: 16
-                                               
-                                              ),),
-                                            ),
-                                          )
-                                        ],
-                                       )   
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-             const SizedBox(height: 20,)
+                        const SizedBox(height: 20,)
              ,SwitchListTile(
               value: isSwitchedon,
               onChanged: (bool value){
@@ -320,166 +323,236 @@ class _CardDetailsState extends State<CardDetails> {
         color: Colors.grey[400],
       ),),
   
-             )
-              ,Visibility(
+             )],
+                    ),
+                  ),
+               
+             
+               ],
+             ),
+             
+              Visibility(
                 visible: isPhysicalCardVisible,
-                child: Center(
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 20,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      decoration: BoxDecoration(
-                        color: MyColors.greenColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  children: [
+                    Center(
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 20,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.4,
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          decoration: BoxDecoration(
+                            color: MyColors.greenColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
                               children: [
-                                Image.asset(
-                                  Myimages.sadapaywhitelogo,
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                Column(
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    SizedBox(
+                                    Image.asset(
+                                      Myimages.sadapaywhitelogo,
+                                      height: 50,
                                       width: 50,
-                                      child: Column(
-                                        children: [
-                                          const Text(
-                                            "••••••••••••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color: Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          Text(
-                                            getlastphysicalcardnumber(),
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 3.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-
-                                          
-                                        ],
-                                      ),
                                     ),
-                                    
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20,),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [Text(
-                                         "Exp date",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                           Text( " ••/••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color:  Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          ],),
-                                             const SizedBox(height: 10,),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [Text(
-                                         "CVC",
-                                            style: TextStyle(
-                                              color:  Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                           Text( " •••",
-                                            style: TextStyle(
-                                              height: 2,
-                                              color:  Colors.white,
-                                               fontFamily: "Brandon",
-                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 6.0, // Adjust the spacing as needed
-                                            ),
-                                          ),
-                                          ],),
-                                          const SizedBox(height: 30,),
-                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          InkWell(
-                                              
-                                            child: Container(
-                                              height: 40,
-                                              width: 80,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(20),
-                                                color: const Color(0xff005244)
-                                              ),
-                                              child: const Center(
-                                                child: Text("View",style: TextStyle(
-                                                 
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          width: 50,
+                                          child: Column(
+                                            children: [
+                                              const Text(
+                                                "••••••••••••",
+                                                style: TextStyle(
+                                                  height: 2,
                                                   color: Colors.white,
                                                    fontFamily: "Brandon",
-                                                   fontWeight: FontWeight.w400,
-                                                   fontSize: 16
-                                                 
-                                                ),),
+                                                   fontWeight: FontWeight.bold,
+                                                  letterSpacing: 6.0, // Adjust the spacing as needed
+                                                ),
                                               ),
-                                            ),
+                                              Text(
+                                                getlastphysicalcardnumber(),
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+                                                   fontFamily: "Brandon",
+                                                   fontWeight: FontWeight.bold,
+                                                  letterSpacing: 3.0, // Adjust the spacing as needed
+                                                ),
+                                              ),
+
+                                              
+                                            ],
                                           ),
-                                          const SizedBox(width: 10,),
-                                             Container(
-                                            height: 40,
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                              color:  const Color(0xff005244)
-                                            ),
-                                            child: const Center(
-                                              child: Text("Copy",style: TextStyle(
-                                               
-                                                color:   Colors.white,
-                                                 fontFamily: "Brandon",
-                                                 fontWeight: FontWeight.w400,
-                                                 fontSize: 16
-                                               
-                                              ),),
-                                            ),
-                                          )
-                                        ],
-                                       )   
-                          ],
+                                        ),
+                                        
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20,),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text(
+                                             "Exp date",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                   fontFamily: "Brandon",
+                                                   fontWeight: FontWeight.bold,
+                                                  // Adjust the spacing as needed
+                                                ),
+                                              ),
+                                               Text( " ••/••",
+                                                style: TextStyle(
+                                                  height: 2,
+                                                  color:  Colors.white,
+                                                   fontFamily: "Brandon",
+                                                   fontWeight: FontWeight.bold,
+                                                  letterSpacing: 6.0, // Adjust the spacing as needed
+                                                ),
+                                              ),
+                                              ],),
+                                                 const SizedBox(height: 10,),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text(
+                                             "CVC",
+                                                style: TextStyle(
+                                                  color:  Colors.white,
+                                                   fontFamily: "Brandon",
+                                                   fontWeight: FontWeight.bold,
+                                                  // Adjust the spacing as needed
+                                                ),
+                                              ),
+                                               Text( " •••",
+                                                style: TextStyle(
+                                                  height: 2,
+                                                  color:  Colors.white,
+                                                   fontFamily: "Brandon",
+                                                   fontWeight: FontWeight.bold,
+                                                  letterSpacing: 6.0, // Adjust the spacing as needed
+                                                ),
+                                              ),
+                                              ],),
+                                              const SizedBox(height: 30,),
+                                           Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              InkWell(
+                                                  
+                                                child: Container(
+                                                  height: 40,
+                                                  width: 80,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(20),
+                                                    color: const Color(0xff005244)
+                                                  ),
+                                                  child: const Center(
+                                                    child: Text("View",style: TextStyle(
+                                                     
+                                                      color: Colors.white,
+                                                       fontFamily: "Brandon",
+                                                       fontWeight: FontWeight.w400,
+                                                       fontSize: 16
+                                                     
+                                                    ),),
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                                 Container(
+                                                height: 40,
+                                                width: 80,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(20),
+                                                  color:  const Color(0xff005244)
+                                                ),
+                                                child: const Center(
+                                                  child: Text("Copy",style: TextStyle(
+                                                   
+                                                    color:   Colors.white,
+                                                     fontFamily: "Brandon",
+                                                     fontWeight: FontWeight.w400,
+                                                     fontSize: 16
+                                                   
+                                                  ),),
+                                                ),
+                                              )
+                                            ],
+                                           )   
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    const SizedBox(height: 20,)
+             ,SwitchListTile(
+              value: isSwitchedon,
+              onChanged: (bool value){
+                setState(() {
+                  isSwitchedon = value;
+                });
+              },
+              secondary: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Image.asset("assets/images/freezeicon.png"),
+              ),
+              title: const Text("Freeze card",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 17,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+      ),),
+              subtitle:  Text(isSwitchedon?"Unlock this card to use it":"Lock this card temporarily",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: Colors.grey[400],
+      ),),
+  
+             ),
+             ListTile(
+              leading: Image.asset("assets/images/changepin.png"),
+              title: const Text("Change debit card PIN",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 17,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+      ),),
+              subtitle:  Text("Update debit card PIN",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: Colors.grey[400],
+      ),),
+             ),
+              ListTile(
+              leading: Image.asset("assets/images/lostcard.png"),
+              title: const Text("Report an issue with your card",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 17,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+      ),),
+              subtitle:  Text("Card is lost, stolen, damaged or compromised",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: Colors.grey[400],
+      ),),
+             )
+             
+             ],
                 ),
               )
                   // Physical Card Content
+          
+          
            ],
           ),
         ),
