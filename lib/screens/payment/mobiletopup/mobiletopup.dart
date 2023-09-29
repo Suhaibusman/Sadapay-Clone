@@ -76,7 +76,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                         children: [
                               const Text("New Mobile top up" , style: TextStyle(
                           fontFamily: "Brandon" ,
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black
                         ),),
@@ -86,7 +86,7 @@ class _MobileTopUpState extends State<MobileTopUp> {
                              
                                                  fontFamily: "Brandon" ,
                                                  fontSize: 16,
-                                                 fontWeight: FontWeight.w500,
+                                                 fontWeight: FontWeight.w300,
                                                  color: Colors.grey[600]
                                                ),),
                            ),

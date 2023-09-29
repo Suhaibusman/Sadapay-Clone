@@ -14,7 +14,7 @@ class _BillsScreenState extends State<BillsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -24,10 +24,10 @@ class _BillsScreenState extends State<BillsScreen> {
               const SizedBox(height: 20,),
               IconButton(onPressed:()=> Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios)),
                    const SizedBox(height: 20,),
-  const Text("Mobile top up" , style: TextStyle(
+          const Text("Mobile top up" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 35,
-                      // fontWeight: FontWeight.w500,
+                      fontSize: 25,
+                       fontWeight: FontWeight.w400,
                       color: Colors.black
                     ),),
                         const SizedBox(height: 20,),
@@ -67,7 +67,7 @@ class _BillsScreenState extends State<BillsScreen> {
                       children: [
                             const Text("New bill payment" , style: TextStyle(
                         fontFamily: "Brandon" ,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: Colors.black
                       ),),
@@ -77,7 +77,7 @@ class _BillsScreenState extends State<BillsScreen> {
                            
                                                fontFamily: "Brandon" ,
                                                fontSize: 16,
-                                               fontWeight: FontWeight.w500,
+                                               fontWeight: FontWeight.w300,
                                                color: Colors.grey[600]
                                              ),),
                          ),

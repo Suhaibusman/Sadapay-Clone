@@ -58,13 +58,13 @@ class _NavBarState extends State<NavBar> {
               child: Row(
                 children: [
                   Container(
-                    height: 60,
-                    width: 60,
+                    height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(20)), 
                       color: MyColors.pinkColor.withOpacity(0.2)
                     ),
-                    child:  const Icon(Icons.send_to_mobile ,color: MyColors.pinkColor, size: 40,)),
+                    child:  const Icon(Icons.send_to_mobile ,color: MyColors.pinkColor, size: 30,)),
                 Padding(
                 padding: const EdgeInsets.only(left: 20),
                   child: Column(
@@ -73,14 +73,14 @@ class _NavBarState extends State<NavBar> {
                     children: [
                           const Text("Mobile top up" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black
                     ),),
                        Text("Instantly top up your mobile." , style: TextStyle(
                       fontFamily: "Brandon" ,
                       fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w300,
                       color: Colors.grey[600]
                     ),),
                     ],
@@ -105,13 +105,13 @@ class _NavBarState extends State<NavBar> {
                      child: Row(
                                  children: [
                                    Container(
-                      height: 60,
-                      width: 60,
+                  height: 50,
+                    width: 50,
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(Radius.circular(20)), 
                         color: MyColors.pinkColor.withOpacity(0.2)
                       ),
-                      child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 40,)),
+                      child:  const Icon(Icons.receipt_sharp ,color: MyColors.pinkColor, size: 30,)),
                                  Padding(
                                    padding: const EdgeInsets.only(left:20),
                                    child: Column(
@@ -120,14 +120,14 @@ class _NavBarState extends State<NavBar> {
                       children: [
                             const Text("Bills & utilities" , style: TextStyle(
                         fontFamily: "Brandon" ,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: Colors.black
                       ),),
                          Text("Pay for your utilities." , style: TextStyle(
                         fontFamily: "Brandon" ,
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w300,
                         color: Colors.grey[600]
                       ),),
                       ],
@@ -149,13 +149,13 @@ class _NavBarState extends State<NavBar> {
                    child: Row(
                                children: [
                                  Container(
-                    height: 60,
-                    width: 60,
+                height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(20)), 
                       color: MyColors.pinkColor.withOpacity(0.2)
                     ),
-                    child:  const Icon(Icons.remove_from_queue_rounded ,color: MyColors.pinkColor, size: 40,)),
+                    child:  const Icon(Icons.remove_from_queue_rounded ,color: MyColors.pinkColor, size: 30,)),
                                Padding(
                                  padding: const EdgeInsets.only(left: 20),
                                  child: Column(
@@ -164,14 +164,14 @@ class _NavBarState extends State<NavBar> {
                     children: [
                           const Text("Money requests" , style: TextStyle(
                       fontFamily: "Brandon" ,
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black
                     ),),
                        Text("Review pending money requests." , style: TextStyle(
                       fontFamily: "Brandon" ,
                       fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w300,
                       color: Colors.grey[600]
                     ),),
                     ],
