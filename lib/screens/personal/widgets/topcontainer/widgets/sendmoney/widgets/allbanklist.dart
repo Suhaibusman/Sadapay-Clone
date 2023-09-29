@@ -84,27 +84,25 @@ class _AllBankListState extends State<AllBankList> {
               ),
                Expanded(
 
-                 child: Padding(
-                   padding: const EdgeInsets.only(bottom: 20),
-                   child: ListView.builder(
-                    itemCount: banklist.length,
-                    itemBuilder: (context, index) {
-                     return ListTile(
-                      leading: CircleAvatar(
+                 child: ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(height: 10,),
+                  itemCount: banklist.length,
+                  itemBuilder: (context, index) {
+                   return ListTile(
+                    leading: CircleAvatar(
                  
-                        backgroundColor: Colors.white,
-                        child: Image.asset(banklist[index].image),
+                      backgroundColor: Colors.white,
+                      child: Image.asset(banklist[index].image),
                  
-                      ),
-                      title: Text(banklist[index].bankname , style: const TextStyle(
-                    fontFamily: "Brandon" ,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black
-                                 ),),
-                     );
-                   },),
-                 ),
+                    ),
+                    title: Text(banklist[index].bankname , style: const TextStyle(
+                  fontFamily: "Brandon" ,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black
+                               ),),
+                   );
+                 },),
                )
             ],
           ),
