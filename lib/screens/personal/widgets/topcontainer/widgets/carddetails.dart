@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
 
+
 class CardDetails extends StatefulWidget {
   const CardDetails({Key? key}) : super(key: key);
 
@@ -13,12 +14,18 @@ class _CardDetailsState extends State<CardDetails> {
   bool isVirtualCardVisible = true;
   bool isPhysicalCardVisible = false;
 
-  String cardNumber = "7666826762767432"; // Your card number here
-
-  String getLast4Digits() {
-    return cardNumber.substring(cardNumber.length - 4);
+  String virtualCardNumb = "5278588706895164"; // Your card number here
+  String virtualCardexpDate = "07/28";
+  String virtualCardcvc = "032";
+  String getlastvirtualcardnumber() {
+    return virtualCardNumb.substring(virtualCardNumb.length - 4);
   }
-
+   String physicalCardNumb = "5237524411364758"; // Your card number here
+  String physicalCardexpDate = "07/28";
+  String physicalCardcvc = "032";
+  String getlastphysicalcardnumber() {
+    return physicalCardNumb.substring(physicalCardNumb.length - 4);
+  }
   void showVirtualCard() {
     setState(() {
       isVirtualCardVisible = true;
@@ -124,7 +131,7 @@ class _CardDetailsState extends State<CardDetails> {
               ),
               const SizedBox(height: 20), // Add spacing
               // Virtual Card Content
-              Visibility(
+             Visibility(
                 visible: isVirtualCardVisible,
                 child: Center(
                   child: Material(
@@ -167,7 +174,7 @@ class _CardDetailsState extends State<CardDetails> {
                                             ),
                                           ),
                                           Text(
-                                            getLast4Digits(),
+                                            getlastvirtualcardnumber(),
                                             style: const TextStyle(
                                               color: Colors.grey,
                                                fontFamily: "Brandon",
@@ -254,7 +261,7 @@ class _CardDetailsState extends State<CardDetails> {
                                               ),
                                             ),
                                           ),
-                                          SizedBox(width: 10,),
+                                          const SizedBox(width: 10,),
                                              Container(
                                             height: 40,
                                             width: 80,
@@ -282,7 +289,6 @@ class _CardDetailsState extends State<CardDetails> {
                   ),
                 ),
               ),
-              // Physical Card Content
               Visibility(
                 visible: isPhysicalCardVisible,
                 child: Center(
@@ -326,7 +332,7 @@ class _CardDetailsState extends State<CardDetails> {
                                             ),
                                           ),
                                           Text(
-                                            getLast4Digits(),
+                                            getlastphysicalcardnumber(),
                                             style: const TextStyle(
                                               color: Colors.white,
                                                fontFamily: "Brandon",
@@ -413,7 +419,7 @@ class _CardDetailsState extends State<CardDetails> {
                                               ),
                                             ),
                                           ),
-                                          SizedBox(width: 10,),
+                                          const SizedBox(width: 10,),
                                              Container(
                                             height: 40,
                                             width: 80,
@@ -440,8 +446,9 @@ class _CardDetailsState extends State<CardDetails> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              )
+                  // Physical Card Content
+           ],
           ),
         ),
       ),
