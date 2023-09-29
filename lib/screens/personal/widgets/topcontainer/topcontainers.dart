@@ -3,6 +3,7 @@ import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/carddetails.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/loadmoney.dart';
+import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/sendmoney.dart';
 
 
 class TopContainer extends StatefulWidget {
@@ -102,35 +103,38 @@ class _TopContainerState extends State<TopContainer> {
                                             ),
                         ),
                     const SizedBox(height: 15,),
-                    Container(
-                      height: MediaQuery.sizeOf(context).height*0.14,
-                      width: MediaQuery.sizeOf(context).width*0.36,
-                      decoration: BoxDecoration(
-                        color: MyColors.pinkColor,
-                        borderRadius: BorderRadius.circular(20)
-                      ), child:  Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Icon(Icons.arrow_outward ,color: Colors.white,),
-                              ],
-                            ),
-                            SizedBox(
-                              width: MediaQuery.sizeOf(context).height*0.10,
-                              child: const Text("Send & Request", style:  TextStyle(
-                                              fontFamily: "Brandon" ,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white
-                                            )),
-                            )
-                          ],
+                    InkWell(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SendMoney(),)),
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height*0.14,
+                        width: MediaQuery.sizeOf(context).width*0.36,
+                        decoration: BoxDecoration(
+                          color: MyColors.pinkColor,
+                          borderRadius: BorderRadius.circular(20)
+                        ), child:  Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              
+                              const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(Icons.arrow_outward ,color: Colors.white,),
+                                ],
+                              ),
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).height*0.10,
+                                child: const Text("Send & Request", style:  TextStyle(
+                                                fontFamily: "Brandon" ,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.white
+                                              )),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
