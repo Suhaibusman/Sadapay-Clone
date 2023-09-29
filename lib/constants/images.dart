@@ -16,4 +16,6 @@ static const String zonglogo = "assets/images/zong4glogo.png";
 static const String jazzcashlogo = "assets/images/jazzcash.png";
 static const String easypaisalogo = "assets/images/easypaisalogo.png";
 static const String nayapaylogo = "assets/images/nayapaylogo.png";
+static const String ssgclogo = "assets/images/ssgclogo.png";
+static const String kelogo = "assets/images/kelogo.png";
 }

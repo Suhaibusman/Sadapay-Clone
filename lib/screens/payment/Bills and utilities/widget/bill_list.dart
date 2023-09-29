@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sadapayclone/data/banklist.dart';
+import 'package:sadapayclone/data/billinglist.dart';
+
 
 class BillList extends StatefulWidget {
   const BillList({super.key});
@@ -9,19 +10,19 @@ class BillList extends StatefulWidget {
 }
 
 class _BillListState extends State<BillList> {
-  final TextEditingController searchBankname = TextEditingController();
-  List<BankPart> banklist = [];
+  final TextEditingController searchbillname = TextEditingController();
+  List<BillingPart> billlist = [];
 
-  void _getBankPart() {
+  void _getBillingPart() {
     setState(() {
-      banklist = BankPart.getBankPart();
+      billlist = BillingPart.getBillingPart();
     });
   }
 
 
   @override
   Widget build(BuildContext context) {
-    _getBankPart();
+    _getBillingPart();
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -52,10 +53,10 @@ class _BillListState extends State<BillList> {
                 height: 45,
                 child: TextField(
                   keyboardType: TextInputType.text,
-                  controller: searchBankname,
+                  controller: searchbillname,
                   onChanged: (value) {
                     setState(() {
-                      // No need to filter the bank list here
+                      // No need to filter the bill list here
                       // We will conditionally render the ListTile based on search
                     });
                   },
@@ -86,17 +87,17 @@ class _BillListState extends State<BillList> {
                 height: 20,
               ),
               Expanded(
-                child: searchBankname.text.isEmpty
+                child: searchbillname.text.isEmpty
                     ? ListView.builder(
-                        itemCount: banklist.length,
+                        itemCount: billlist.length,
                         itemBuilder: (context, index) {
                           return ListTile(
                             leading: CircleAvatar(
                               backgroundColor: Colors.white,
-                              child: Image.asset(banklist[index].image),
+                              child: Image.asset(billlist[index].image),
                             ),
                             title: Text(
-                              banklist[index].bankname,
+                              billlist[index].billName,
                               style: const TextStyle(
                                 fontFamily: "Brandon",
                                 fontSize: 16,
@@ -107,15 +108,15 @@ class _BillListState extends State<BillList> {
                           );
                         },
                       )
-                    : banklist
-                        .where((bank) => bank.bankname
+                    : billlist
+                        .where((bill) => bill.billName
                             .toLowerCase()
-                            .contains(searchBankname.text.toLowerCase()))
+                            .contains(searchbillname.text.toLowerCase()))
                         .isEmpty
                         ? const ListTile(
                             // Show a message when no results match the search
                             title: Text(
-                              "No matching banks found",
+                              "No Record Found",
                               style: TextStyle(
                                 fontFamily: "Brandon",
                                 fontSize: 16,
@@ -125,20 +126,20 @@ class _BillListState extends State<BillList> {
                             ),
                           )
                         : ListView.builder(
-                            itemCount: banklist.length,
+                            itemCount: billlist.length,
                             itemBuilder: (context, index) {
-                              // Only display matching banks in the list
-                              if (banklist[index]
-                                  .bankname
+                              // Only display matching bills in the list
+                              if (billlist[index]
+                                  .billName
                                   .toLowerCase()
-                                  .contains(searchBankname.text.toLowerCase())) {
+                                  .contains(searchbillname.text.toLowerCase())) {
                                 return ListTile(
                                   leading: CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    child: Image.asset(banklist[index].image),
+                                    child: Image.asset(billlist[index].image),
                                   ),
                                   title: Text(
-                                    banklist[index].bankname,
+                                    billlist[index].billName,
                                     style: const TextStyle(
                                       fontFamily: "Brandon",
                                       fontSize: 16,
