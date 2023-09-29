@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/data/balance_record.dart';
+
 import 'package:sadapayclone/screens/personal/personalscreen.dart';
 
 class EnterAmountScreen extends StatefulWidget {
@@ -50,6 +52,7 @@ class _EnterAmountScreenState extends State<EnterAmountScreen> {
     }
   }
 
+
 accountbalancecheck(){
   try {
     final int amount = int.parse(enteramount.text); 
@@ -60,9 +63,15 @@ accountbalancecheck(){
       }
       else{
        accountBalance -= amount;
+    
+         
+       setState(() {
+         
+   balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
+       });
        
         return Text('Amount of Rs. $amount has been deducted. New Balance: Rs. $accountBalance');
-
+        
       } 
   } catch (e) {
     // ignore: avoid_print
@@ -90,9 +99,15 @@ titleselector(){
 }
   final TextEditingController enteramount = TextEditingController();
   // Replace with your actual balance
-
+      List<BalancePart> balance = [];
+  void _getBalancePart() {
+    setState(() {
+      balance = BalancePart.getBalancePart();
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    _getBalancePart();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

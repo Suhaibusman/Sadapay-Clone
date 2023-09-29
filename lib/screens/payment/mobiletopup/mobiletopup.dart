@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
+import 'package:sadapayclone/data/balance_record.dart';
 import 'package:sadapayclone/screens/payment/mobiletopup/widget/balanceload.dart';
 
 class MobileTopUp extends StatefulWidget {
@@ -10,10 +11,18 @@ class MobileTopUp extends StatefulWidget {
 }
 
 class _MobileTopUpState extends State<MobileTopUp> {
+  List<BalancePart> balance = [];
+  void _getBalancePart() {
+    setState(() {
+      balance = BalancePart.getBalancePart();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    _getBalancePart();
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -84,7 +93,36 @@ class _MobileTopUpState extends State<MobileTopUp> {
                                   ],
                                 ),
                     ),
-                  )  
+                  ),
+                  const SizedBox(height: 20,),
+               balance.isNotEmpty?   Text("Top up again", style: TextStyle(
+                    fontFamily: "Brandon" ,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[400]
+                  ),): const Text(""),
+                       const SizedBox(height: 20,),
+                 Expanded(
+
+                   child: ListView.builder(
+                    itemCount: balance.length,
+                    itemBuilder: (context, index) {
+                     return ListTile(
+                      leading: CircleAvatar(
+                        
+                        backgroundColor: Colors.white,
+                        child: Image.asset(balance[index].image),
+                 
+                      ),
+                      title: Text(balance[index].phonenumber , style: const TextStyle(
+                    fontFamily: "Brandon" ,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black
+                  ),),
+                     );
+                   },),
+                 )
            
            ],
           ),
