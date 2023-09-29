@@ -13,4 +13,7 @@ static const String telenorlogo = "assets/images/telenorlogo.png";
 static const String scomlogo = "assets/images/scomlogo.png";
 static const String ufonelogo = "assets/images/ufonelogo.png";
 static const String zonglogo = "assets/images/zong4glogo.png";
+static const String jazzcashlogo = "assets/images/jazzcash.png";
+static const String easypaisalogo = "assets/images/easypaisalogo.png";
+static const String nayapaylogo = "assets/images/nayapaylogo.png";
 }
