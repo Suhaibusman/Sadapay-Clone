@@ -19,9 +19,9 @@ BalancePart({
 static List<BalancePart> getBalancePart(){
   List<BalancePart> balance=[];
 
- balance.add(
-  BalancePart(image: Myimages.zonglogo, phonenumber: "03112136120")
- );
+//  balance.add(
+//   BalancePart(image: Myimages.zonglogo, phonenumber: "03112136120")
+//  );
  return balance;
 }
 
