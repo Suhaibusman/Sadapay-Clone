@@ -70,6 +70,7 @@ class _CardDetailsState extends State<CardDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
+                
                 height: 50,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
@@ -143,12 +144,17 @@ class _CardDetailsState extends State<CardDetails> {
                       children: [
                         Center(
                           child: Material(
+                            
                             color: Colors.transparent,
                             elevation: 20,
                             child: Container(
+                              
                               height: MediaQuery.of(context).size.height * 0.4,
                               width: MediaQuery.of(context).size.width * 0.6,
                               decoration: BoxDecoration(
+                                image:  DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: isSwitchedon?const AssetImage("assets/images/freezebg.jpg"):const AssetImage("assets/images/whitebg.jpg")),
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -343,6 +349,9 @@ class _CardDetailsState extends State<CardDetails> {
                           height: MediaQuery.of(context).size.height * 0.4,
                           width: MediaQuery.of(context).size.width * 0.6,
                           decoration: BoxDecoration(
+                             image:  DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: isSwitchedon?const AssetImage("assets/images/freezebg.jpg"):const AssetImage("assets/images/whitebg.jpg")),
                             color: MyColors.greenColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
