@@ -65,10 +65,8 @@ accountbalancecheck(){
        accountBalance -= amount;
     
          
-       setState(() {
-         
+       
    balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
-       });
        
         return Text('Amount of Rs. $amount has been deducted. New Balance: Rs. $accountBalance');
         
