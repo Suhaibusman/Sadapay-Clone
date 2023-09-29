@@ -13,7 +13,8 @@ class CardDetails extends StatefulWidget {
 class _CardDetailsState extends State<CardDetails> {
   bool isVirtualCardVisible = true;
   bool isPhysicalCardVisible = false;
-
+  bool isCardDetailsVisible = false;
+  bool isSwitchedon =false;
   String virtualCardNumb = "5278588706895164"; // Your card number here
   String virtualCardexpDate = "07/28";
   String virtualCardcvc = "032";
@@ -30,6 +31,7 @@ class _CardDetailsState extends State<CardDetails> {
     setState(() {
       isVirtualCardVisible = true;
       isPhysicalCardVisible = false;
+      isCardDetailsVisible = false; // Hide card details when switching between cards
     });
   }
 
@@ -37,11 +39,13 @@ class _CardDetailsState extends State<CardDetails> {
     setState(() {
       isVirtualCardVisible = false;
       isPhysicalCardVisible = true;
+      isCardDetailsVisible = false; // Hide card details when switching between cards
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -241,7 +245,9 @@ class _CardDetailsState extends State<CardDetails> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           InkWell(
-
+                                                onTap: () {
+                                                  isCardDetailsVisible =true;
+                                                },
                                             child: Container(
                                               height: 40,
                                               width: 80,
@@ -289,7 +295,33 @@ class _CardDetailsState extends State<CardDetails> {
                   ),
                 ),
               ),
-              Visibility(
+             const SizedBox(height: 20,)
+             ,SwitchListTile(
+              value: isSwitchedon,
+              onChanged: (bool value){
+                setState(() {
+                  isSwitchedon = value;
+                });
+              },
+              secondary: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Image.asset("assets/images/freezeicon.png"),
+              ),
+              title: const Text("Freeze card",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 17,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+      ),),
+              subtitle:  Text(isSwitchedon?"Unlock this card to use it":"Lock this card temporarily",style:  TextStyle(
+        fontFamily: "Brandon",
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: Colors.grey[400],
+      ),),
+  
+             )
+              ,Visibility(
                 visible: isPhysicalCardVisible,
                 child: Center(
                   child: Material(
@@ -399,7 +431,7 @@ class _CardDetailsState extends State<CardDetails> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           InkWell(
-                                            
+                                              
                                             child: Container(
                                               height: 40,
                                               width: 80,
