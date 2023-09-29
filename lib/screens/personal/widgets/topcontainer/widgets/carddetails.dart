@@ -154,7 +154,7 @@ class _CardDetailsState extends State<CardDetails> {
                               decoration: BoxDecoration(
                                 image:  DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: isSwitchedon?const AssetImage("assets/images/freezebg.jpg"):const AssetImage("assets/images/whitebg.jpg")),
+                                 image: isSwitchedon?const AssetImage("assets/images/freezenew.jpg"):const AssetImage("assets/images/whitebg.png")),
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -349,9 +349,9 @@ class _CardDetailsState extends State<CardDetails> {
                           height: MediaQuery.of(context).size.height * 0.4,
                           width: MediaQuery.of(context).size.width * 0.6,
                           decoration: BoxDecoration(
-                             image:  DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: isSwitchedon?const AssetImage("assets/images/freezebg.jpg"):const AssetImage("assets/images/whitebg.jpg")),
+                            //  image:  DecorationImage(
+                            //       fit: BoxFit.fill,
+                            //       image: isSwitchedon?const AssetImage("assets/images/freezenew.jpg"):const AssetImage("assets/images/whitebg.png")),
                             color: MyColors.greenColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
