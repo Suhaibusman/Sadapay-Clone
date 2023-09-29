@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/carddetails.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/loadmoney.dart';
 
 
@@ -16,45 +17,48 @@ class _TopContainerState extends State<TopContainer> {
   Widget build(BuildContext context) {
     return         Row(
                 children: [
-                  Container(
-                    height: MediaQuery.sizeOf(context).height*0.3,
-                    width: MediaQuery.sizeOf(context).width*0.5,
-                    decoration: BoxDecoration(
-                      color: MyColors.greenColor,
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                        SizedBox(child: Column(
+                  InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const CardDetails(),)),
+                    child: Container(
+                      height: MediaQuery.sizeOf(context).height*0.3,
+                      width: MediaQuery.sizeOf(context).width*0.5,
+                      decoration: BoxDecoration(
+                        color: MyColors.greenColor,
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                              const Text("Current Balance", style:  TextStyle(
-                                                fontFamily: "Brandon" ,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w200,
-                                                color: Colors.white
-                                              )),
-                           Text("Rs. ${accountBalance.toString()}", style:  const TextStyle(
-                                                fontFamily: "Brandon" ,
-                                                fontSize: 27,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white
-                                              )),    
+                          SizedBox(child: Column(
+                            children: [
+                                const Text("Current Balance", style:  TextStyle(
+                                                  fontFamily: "Brandon" ,
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.w200,
+                                                  color: Colors.white
+                                                )),
+                             Text("Rs. ${accountBalance.toString()}", style:  const TextStyle(
+                                                  fontFamily: "Brandon" ,
+                                                  fontSize: 27,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white
+                                                )),    
+                            ],
+                          ),),
+                  
+                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Image.asset("assets/images/mastercardicon.png" ,height: 50 ,width: 50,),
+                                   const Icon(Icons.arrow_forward_rounded ,color: Colors.white,),  
+                                ],
+                              )
+                                       
                           ],
-                        ),),
-
-                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Image.asset("assets/images/mastercardicon.png" ,height: 50 ,width: 50,),
-                                 const Icon(Icons.arrow_forward_rounded ,color: Colors.white,),  
-                              ],
-                            )
-                                     
-                        ],
+                        ),
                       ),
                     ),
                   ),
