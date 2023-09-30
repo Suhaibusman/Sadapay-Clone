@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/widgets/requestbutton.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/widgets/sendbutton.dart';
 
 class SendMoney extends StatefulWidget {
@@ -166,20 +167,23 @@ class _SendMoneyState extends State<SendMoney> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width*0.43,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.black
-                  ),
-                  child: const Center(
-                    child: Text("Request",  style: TextStyle(
-                              fontFamily: "Brandon",
-                             color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold
-                            )),
+                InkWell(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestMoney(),)),
+                  child: Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width*0.43,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.black
+                    ),
+                    child: const Center(
+                      child: Text("Request",  style: TextStyle(
+                                fontFamily: "Brandon",
+                               color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold
+                              )),
+                    ),
                   ),
                 ),
                   InkWell(

@@ -22,7 +22,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
           child: Column(
             
             children: [
-              SizedBox(height: 20,),
+             
               TopContainer(),
                SizedBox(height: 20,),
               TransactionList()
