@@ -39,7 +39,12 @@ class _SplashScreenState extends State<SplashScreen> {
           padding: const EdgeInsets.all(40),
           child: Center(
             
-            child: Image.asset(Myimages.sadapaytextwithlogo),
+            child: Row(
+              children: [
+                  Image.asset(Myimages.sadapaywhitelogo),
+                Expanded(child: Image.asset(Myimages.sadapaytextwithoutlogo)),
+              ],
+            ),
           ),
         ),
       ),
