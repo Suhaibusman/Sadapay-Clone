@@ -100,10 +100,14 @@ class _TransactionListState extends State<TransactionList> {
               navigatetonext(index);
             },
             child: ListTile(
-                leading: CircleAvatar(
-                    radius: 25,
-                    backgroundColor: backgroundcolor(index),
-                    child: Image.asset(checksentorrecieved(index)),
+                leading: Container(
+                  height: 50,
+                  width: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    color: backgroundcolor(index),
+                    ),
+                    child: Image.asset(checksentorrecieved(index) ,height: 20,width: 20,),
                 ),
                 title: recivernameorsender(index),
                  subtitle: Text(transaction[index].transactiontime , style: const TextStyle(
