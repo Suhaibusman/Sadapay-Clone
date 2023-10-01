@@ -39,7 +39,7 @@ void addToAmount(String digit) {
 }
 sendButton(){
   if (sendMoney.isNotEmpty && newAmount <=accountBalance) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const MoneyTransfer(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) =>  MoneyTransfer(amount: newAmount),));
   }else{
       isBalanceLow =true;
       Timer(const Duration(seconds: 2), () {
@@ -216,7 +216,8 @@ receiveButton(){
                     Padding(
                       padding: const EdgeInsets.only(left:77),
                       child: TextButton(onPressed: (){
-                         addToAmount(0.toString());
+                        if(sendMoney.isNotEmpty ==true){
+                         addToAmount(0.toString());}
                       }, child: const Text("0",  style: TextStyle(
                         fontFamily: "Brandon",
                        color: Colors.white,

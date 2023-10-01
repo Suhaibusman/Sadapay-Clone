@@ -3,7 +3,8 @@ import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/widgets/allbanklist.dart';
 
 class MoneyTransfer extends StatefulWidget {
-  const MoneyTransfer({super.key});
+  final int amount ;
+  const MoneyTransfer({super.key, required this.amount});
 
   @override
   State<MoneyTransfer> createState() => _MoneyTransferState();
