@@ -11,16 +11,16 @@ class MobileTopUp extends StatefulWidget {
 }
 
 class _MobileTopUpState extends State<MobileTopUp> {
-  List<BalancePart> balance = [];
+   List<BalancePart> balance = [];
   void _getBalancePart() {
     setState(() {
-      balance = BalancePart.getBalancePart();
+     balance= BalancePart.getBalancePart();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    _getBalancePart();
+     _getBalancePart();
     return Scaffold(
       // backgroundColor: Colors.white,
       body: SafeArea(

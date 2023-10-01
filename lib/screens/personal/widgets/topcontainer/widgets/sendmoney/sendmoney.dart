@@ -12,6 +12,28 @@ class SendMoney extends StatefulWidget {
 }
 
 class _SendMoneyState extends State<SendMoney> {
+   String sendMoney = "";
+
+ int maxAmount = 200000; // Maximum allowed amount
+
+void addToAmount(String digit) {
+  setState(() {
+    if (digit == "delete") {
+      if (sendMoney.isNotEmpty) {
+        sendMoney = sendMoney.substring(0, sendMoney.length - 1);
+      }
+    } else if (sendMoney.length < 6) { // Limit to 6 digits
+      // Convert sendMoney to an integer and add the new digit
+      int newAmount = int.tryParse(sendMoney + digit) ?? 0;
+      // Check if the new amount exceeds the maximum
+      if (newAmount <= maxAmount) {
+        sendMoney += digit;
+      }
+    }
+  });
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,8 +77,13 @@ class _SendMoneyState extends State<SendMoney> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Center(
-              child: Text("Rs. 0",  style: TextStyle(
+             Center(
+              child: sendMoney.isEmpty? const Text("Rs. 0",  style: TextStyle(
+                    fontFamily: "Brandon",
+                   color: Colors.white,
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold
+                  ),): Text("Rs. $sendMoney",  style: const TextStyle(
                     fontFamily: "Brandon",
                    color: Colors.white,
                     fontSize: 50,
@@ -69,19 +96,19 @@ class _SendMoneyState extends State<SendMoney> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(onPressed: (){}, child: const Text("1",  style: TextStyle(
+                  TextButton(onPressed: (){ addToAmount(1.toString());}, child: const Text("1",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("2",  style: TextStyle(
+                    TextButton(onPressed: (){ addToAmount(2.toString());}, child: const Text("2",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("3",  style: TextStyle(
+                    TextButton(onPressed: (){ addToAmount(3.toString());}, child: const Text("3",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
@@ -95,19 +122,25 @@ class _SendMoneyState extends State<SendMoney> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(onPressed: (){}, child: const Text("4",  style: TextStyle(
+                  TextButton(onPressed: (){
+                     addToAmount(4.toString());
+                  }, child: const Text("4",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("5",  style: TextStyle(
+                    TextButton(onPressed: (){
+                       addToAmount(5.toString());
+                    }, child: const Text("5",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("6",  style: TextStyle(
+                    TextButton(onPressed: (){
+                       addToAmount(6.toString());
+                    }, child: const Text("6",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
@@ -121,19 +154,25 @@ class _SendMoneyState extends State<SendMoney> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(onPressed: (){}, child: const Text("7",  style: TextStyle(
+                  TextButton(onPressed: (){
+                     addToAmount(7.toString());
+                  }, child: const Text("7",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("8",  style: TextStyle(
+                    TextButton(onPressed: (){
+                       addToAmount(8.toString());
+                    }, child: const Text("8",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.bold
                     ),)),
-                    TextButton(onPressed: (){}, child: const Text("9",  style: TextStyle(
+                    TextButton(onPressed: (){
+                       addToAmount(9.toString());
+                    }, child: const Text("9",  style: TextStyle(
                       fontFamily: "Brandon",
                      color: Colors.white,
                       fontSize: 28,
@@ -150,7 +189,9 @@ class _SendMoneyState extends State<SendMoney> {
                  
                     Padding(
                       padding: const EdgeInsets.only(left:77),
-                      child: TextButton(onPressed: (){}, child: const Text("0",  style: TextStyle(
+                      child: TextButton(onPressed: (){
+                         addToAmount(0.toString());
+                      }, child: const Text("0",  style: TextStyle(
                         fontFamily: "Brandon",
                        color: Colors.white,
                         fontSize: 28,
@@ -159,7 +200,7 @@ class _SendMoneyState extends State<SendMoney> {
                     ),
 
                 InkWell(
-                  onTap: (){},
+                  onTap: (){addToAmount("delete");},
                   child: Image.asset("assets/images/delete.png"))
                 ],
               ),

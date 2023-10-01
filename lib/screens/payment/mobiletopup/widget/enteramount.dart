@@ -86,8 +86,9 @@ titleselector(){
   
       }
       else{ 
+         
         return const Text('Top-Up Successful');
-
+      
       } 
   } catch (e) {
     // ignore: avoid_print
@@ -223,6 +224,7 @@ titleselector(){
                           actions: [
                             TextButton(
                               onPressed: () {
+                                 balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
                                 Navigator.of(context).pop();
                               },
                               child: const Text('OK'),
