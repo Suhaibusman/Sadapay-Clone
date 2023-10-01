@@ -17,8 +17,10 @@ class _SendMoneyState extends State<SendMoney> {
    String sendMoney = "";
  late int newAmount;
  int maxAmount = 200000;
+ bool islimitMessage =false;
  bool isBalanceLow =false; // Maximum allowed amount
 String insufficientBalance ="❕ Balance is insufficient";
+String limitMessage ="❕ Limit per transaction is 200,000";
 void addToAmount(String digit) {
   setState(() {
     if (digit == "delete") {
@@ -31,6 +33,13 @@ void addToAmount(String digit) {
       // Check if the new amount exceeds the maximum
       if (newAmount <= maxAmount) {
         sendMoney += digit;
+      } if(newAmount == 200000){
+        islimitMessage =true;
+         Timer(const Duration(seconds: 2), () {
+          setState(() {
+            islimitMessage = false;
+          });
+        });
       }
 
     
@@ -111,10 +120,26 @@ receiveButton(){
                   ),),
             ),
             SizedBox(
-              height: 50,
+              height: 20,
+              child: Center(child: Visibility(
+                visible: islimitMessage,
+                child: Text(limitMessage ,  style: const TextStyle(
+                    fontFamily: "Brandon",
+                   color: Colors.white,
+                    fontSize: 15,
+                    // fontWeight: FontWeight.bold
+                  ),))),
+            ),
+             SizedBox(
+              height: 20,
               child: Center(child: Visibility(
                 visible: isBalanceLow,
-                child: Text(insufficientBalance))),
+                child: Text(insufficientBalance ,  style: const TextStyle(
+                    fontFamily: "Brandon",
+                   color: Colors.white,
+                    fontSize: 15,
+                    // fontWeight: FontWeight.bold
+                  ),))),
             ),
             const SizedBox(height: 80,),
             Padding(
@@ -259,7 +284,7 @@ receiveButton(){
                   InkWell(
                     onTap: () {
                         setState(() {
-                                                sendButton();
+                   sendButton();
                         });
                     },
                     child: Container(
