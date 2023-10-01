@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/data/amount.dart';
@@ -13,9 +15,10 @@ class SendMoney extends StatefulWidget {
 
 class _SendMoneyState extends State<SendMoney> {
    String sendMoney = "";
-
- int maxAmount = 200000; // Maximum allowed amount
-
+ late int newAmount;
+ int maxAmount = 200000;
+ bool isBalanceLow =false; // Maximum allowed amount
+String insufficientBalance ="❕ Balance is insufficient";
 void addToAmount(String digit) {
   setState(() {
     if (digit == "delete") {
@@ -24,16 +27,33 @@ void addToAmount(String digit) {
       }
     } else if (sendMoney.length < 6) { // Limit to 6 digits
       // Convert sendMoney to an integer and add the new digit
-      int newAmount = int.tryParse(sendMoney + digit) ?? 0;
+       newAmount = int.tryParse(sendMoney + digit) ?? 0;
       // Check if the new amount exceeds the maximum
       if (newAmount <= maxAmount) {
         sendMoney += digit;
       }
+
+    
     }
   });
 }
-
-
+sendButton(){
+  if (sendMoney.isNotEmpty && newAmount <=accountBalance) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const MoneyTransfer(),));
+  }else{
+      isBalanceLow =true;
+      Timer(const Duration(seconds: 2), () {
+          setState(() {
+            isBalanceLow = false;
+          });
+        });
+  }
+}
+receiveButton(){
+  if (sendMoney.isNotEmpty) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestMoney(),));
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,6 +109,12 @@ void addToAmount(String digit) {
                     fontSize: 50,
                     fontWeight: FontWeight.bold
                   ),),
+            ),
+            SizedBox(
+              height: 50,
+              child: Center(child: Visibility(
+                visible: isBalanceLow,
+                child: Text(insufficientBalance))),
             ),
             const SizedBox(height: 80,),
             Padding(
@@ -209,13 +235,15 @@ void addToAmount(String digit) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestMoney(),)),
+                  onTap: () {
+                    receiveButton();
+                  },
                   child: Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width*0.43,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Colors.black
+                      color: sendMoney.isEmpty? Colors.transparent :Colors.black
                     ),
                     child: const Center(
                       child: Text("Request",  style: TextStyle(
@@ -229,14 +257,16 @@ void addToAmount(String digit) {
                 ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const MoneyTransfer(),));
+                        setState(() {
+                                                sendButton();
+                        });
                     },
                     child: Container(
                                 height: 60,
                                 width: MediaQuery.of(context).size.width*0.43,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
-                                  color: Colors.black
+                                  color: sendMoney.isEmpty? Colors.transparent :Colors.black
                                 ),
                                 child: const Center(
                                   child: Text("Send",  style: TextStyle(
