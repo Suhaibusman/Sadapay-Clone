@@ -3,7 +3,6 @@ import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
 import 'package:sadapayclone/data/sadapayaccounts.dart';
 
-
 class RequestMoney extends StatefulWidget {
   const RequestMoney({super.key});
 
@@ -12,15 +11,19 @@ class RequestMoney extends StatefulWidget {
 }
 
 class _RequestMoneyState extends State<RequestMoney> {
-    final TextEditingController searchAccountName = TextEditingController();
-      List<SadapayAccountPart> sadapay = [];
+  List<SadapayAccountPart> sadapay = [];
+  final TextEditingController searchAccountName = TextEditingController();
+
+  String getLast4digit(int index) {
+    return sadapay[index]
+        .phonenumber
+        .substring(sadapay[index].phonenumber.length - 4);
+  }
+
   void _getSadapayAccountPart() {
     setState(() {
       sadapay = SadapayAccountPart.getSadapayAccountPart();
     });
-  }
-  String getLast4digit(int index) {
-    return sadapay[index].phonenumber.substring(sadapay[index].phonenumber.length - 4);
   }
 
   @override
@@ -34,7 +37,6 @@ class _RequestMoneyState extends State<RequestMoney> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            
               IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: const Icon(Icons.arrow_back_ios)),
@@ -55,7 +57,7 @@ class _RequestMoneyState extends State<RequestMoney> {
               InkWell(
                 onTap: () {
                   setState(() {
-              //  Navigator.push(context, MaterialPageRoute(builder: (context) => const Allsadapay(),));
+                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => const Allsadapay(),));
                   });
                 },
                 child: Material(
@@ -154,13 +156,13 @@ class _RequestMoneyState extends State<RequestMoney> {
                   ),
                 ),
               ),
-                const SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 "QUICK REQUEST",
                 style: TextStyle(
-                  letterSpacing: 2,
+                    letterSpacing: 2,
                     fontFamily: "Brandon",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -169,9 +171,8 @@ class _RequestMoneyState extends State<RequestMoney> {
               const SizedBox(
                 height: 20,
               ),
-               Expanded(
-
-                 child: searchAccountName.text.isEmpty
+              Expanded(
+                child: searchAccountName.text.isEmpty
                     ? ListView.builder(
                         itemCount: sadapay.length,
                         itemBuilder: (context, index) {
@@ -189,25 +190,23 @@ class _RequestMoneyState extends State<RequestMoney> {
                                 color: Colors.black,
                               ),
                             ),
-                             subtitle: Text(
-                             "SadaPay *${getLast4digit(index)}"
-                                        ,
-                                   
-                                    style:  TextStyle(
-                                      fontFamily: "Brandon",
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.grey[400],
-                                    ),
-                                  ),
+                            subtitle: Text(
+                              "SadaPay *${getLast4digit(index)}",
+                              style: TextStyle(
+                                fontFamily: "Brandon",
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey[400],
+                              ),
+                            ),
                           );
                         },
                       )
                     : sadapay
-                        .where((bank) => bank.username
-                            .toLowerCase()
-                            .contains(searchAccountName.text.toLowerCase()))
-                        .isEmpty
+                            .where((bank) => bank.username
+                                .toLowerCase()
+                                .contains(searchAccountName.text.toLowerCase()))
+                            .isEmpty
                         ? const ListTile(
                             // Show a message when no results match the search
                             title: Text(
@@ -227,11 +226,13 @@ class _RequestMoneyState extends State<RequestMoney> {
                               if (sadapay[index]
                                   .username
                                   .toLowerCase()
-                                  .contains(searchAccountName.text.toLowerCase())) {
+                                  .contains(
+                                      searchAccountName.text.toLowerCase())) {
                                 return ListTile(
                                   leading: CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    child: Image.asset(Myimages.sadapaycolouredlogo),
+                                    child: Image.asset(
+                                        Myimages.sadapaycolouredlogo),
                                   ),
                                   title: Text(
                                     sadapay[index].username,
@@ -244,7 +245,7 @@ class _RequestMoneyState extends State<RequestMoney> {
                                   ),
                                   subtitle: Text(
                                     "SadaPay *${getLast4digit(index)}",
-                                    style:  TextStyle(
+                                    style: TextStyle(
                                       fontFamily: "Brandon",
                                       fontSize: 16,
                                       fontWeight: FontWeight.w300,
@@ -257,7 +258,7 @@ class _RequestMoneyState extends State<RequestMoney> {
                               }
                             },
                           ),
-               )
+              )
             ],
           ),
         ),
