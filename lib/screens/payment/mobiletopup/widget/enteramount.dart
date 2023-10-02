@@ -153,34 +153,31 @@ titleselector(){
                 SizedBox(
                   
                   height: 45,
-                  child: Padding(
-                    padding: const EdgeInsets.all(2),
-                    child: TextField(
-                      
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      controller: enteramount,
-                      onChanged: (value) {
-                        setState(() {
-                          errorMessage = null;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        hintText: "Enter amount 100 - 5000",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(50.0),
+                  child: TextField(
+                    
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    controller: enteramount,
+                    onChanged: (value) {
+                      setState(() {
+                        errorMessage = null;
+                      });
+                    },
+                    decoration: InputDecoration(
+                      hintText: "Enter amount 100 - 5000",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          
+                          color: Colors.black,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.5,
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.5,
+                          color: Colors.black,
                         ),
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
                   ),
