@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
+import 'package:sadapayclone/data/amount.dart';
+import 'package:sadapayclone/data/transaction_record.dart';
 
 import 'package:sadapayclone/screens/personal/personalscreen.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/sendmoney.dart';
@@ -20,9 +22,53 @@ class SendAmountPage extends StatefulWidget {
 }
 
 class _SendAmountPageState extends State<SendAmountPage> {
-  int serviceCharges =0;
+      String _getCurrentDate() {
+    // Get the current date and time
+    DateTime now = DateTime.now();
+
+    // Format the date and time as a string
+    String todayDate = "${now.day} ${now.month} ${now.year}";
+
+    return todayDate;
+  }
+   String _getCurrentTime() {
+    // Get the current date and time
+    DateTime now = DateTime.now();
+
+    // Format the date and time as a string
+   String todayCurrentTime = "${now.hour}:${now.minute}";
+    return todayCurrentTime;
+  }  
+     DateTime now = DateTime.now();
+
+ 
+      int serviceCharges =0;
+   List<TransactionPart> transactions = TransactionPart.getTransactionPart();
+
+  void addtoTransactionlist(List<TransactionPart> transactionList) {
+    setState(() {
+      transactionList.add(TransactionPart(
+        transactiondate: _getCurrentDate(),
+        senderbankname: "SadaPay",
+        sendername: "Muhammad Suhaib",
+        amount: widget.amount,
+        recievername: widget.name,
+        transactiontime: _getCurrentTime(),
+        recieverbankname: "Sadapay",
+        sendernumber: "03112136120",
+        recievernumber: widget.number,
+        refrencenumber: 920065 + 12,
+        servicecharges: serviceCharges,
+        isRecieved: false,
+        isSent: true,
+      ));
+      accountBalance -= widget.amount;
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalScreen(),));
+    });
+  }
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -194,23 +240,28 @@ class _SendAmountPageState extends State<SendAmountPage> {
                   ],
                 ),
              ),
-          Container(
-                          width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: MyColors.pinkColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child:  Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Center(
-                            child: Text("Send Rs. ${widget.amount}" ,  style: const TextStyle(
-                            fontFamily: "Brandon",
-                            fontSize: 20,
-                            color: Colors.white,
-                            ),),
+          InkWell(
+            onTap: (){
+                addtoTransactionlist(transactions);
+            },
+            child: Container(
+                            width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: MyColors.pinkColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child:  Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Center(
+                              child: Text("Send Rs. ${widget.amount}" ,  style: const TextStyle(
+                              fontFamily: "Brandon",
+                              fontSize: 20,
+                              color: Colors.white,
+                              ),),
+                            ),
                           ),
                         ),
-                      ),
+          ),
 
         ]),
       ),
