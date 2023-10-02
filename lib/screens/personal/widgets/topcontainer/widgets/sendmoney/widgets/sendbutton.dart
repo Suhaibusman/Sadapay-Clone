@@ -3,6 +3,7 @@ import 'package:sadapayclone/constants/colors.dart';
 import 'package:sadapayclone/constants/images.dart';
 import 'package:sadapayclone/data/sadapayaccounts.dart';
 import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/widgets/allbanklist.dart';
+import 'package:sadapayclone/screens/personal/widgets/topcontainer/widgets/sendmoney/widgets/sendamountpage/sendamountpage.dart';
 
 class MoneyTransfer extends StatefulWidget {
   final int amount ;
@@ -27,7 +28,13 @@ class _MoneyTransferState extends State<MoneyTransfer> {
       sadapay = SadapayAccountPart.getSadapayAccountPart();
     });
   }
-  
+    void navigatetonext(int index){
+      setState(() {
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>   SendAmountPage(number: sadapay[index].phonenumber , name:sadapay[index].username ,
+        //  amount: widget.amount
+         ),));
+      });
+  }  
   @override
   Widget build(BuildContext context) {
     _getSadapayAccountPart();
@@ -141,27 +148,32 @@ class _MoneyTransferState extends State<MoneyTransfer> {
                 child: ListView.builder(
                         itemCount: sadapay.length,
                         itemBuilder: (context, index) {
-                          return ListTile(
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Image.asset(Myimages.sadapaycolouredlogo),
-                            ),
-                            title: Text(
-                              sadapay[index].username,
-                              style: const TextStyle(
-                                fontFamily: "Brandon",
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
+                          return InkWell(
+                            onTap: () {
+                              navigatetonext(index);
+                            },
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Image.asset(Myimages.sadapaycolouredlogo),
                               ),
-                            ),
-                            subtitle: Text(
-                              "SadaPay *${getLast4digit(index)}",
-                              style: TextStyle(
-                                fontFamily: "Brandon",
-                                fontSize: 16,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.grey[400],
+                              title: Text(
+                                sadapay[index].username,
+                                style: const TextStyle(
+                                  fontFamily: "Brandon",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              subtitle: Text(
+                                "SadaPay *${getLast4digit(index)}",
+                                style: TextStyle(
+                                  fontFamily: "Brandon",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey[400],
+                                ),
                               ),
                             ),
                           );

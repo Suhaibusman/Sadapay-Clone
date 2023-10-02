@@ -15,7 +15,7 @@ class SendMoney extends StatefulWidget {
 
 class _SendMoneyState extends State<SendMoney> {
    String sendMoney = "";
- late int newAmount;
+  int newAmount =0;
  int maxAmount = 200000;
  bool islimitMessage =false;
  bool isBalanceLow =false; // Maximum allowed amount
@@ -48,7 +48,9 @@ void addToAmount(String digit) {
 }
 sendButton(){
   if (sendMoney.isNotEmpty && newAmount <=accountBalance) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) =>  MoneyTransfer(amount: newAmount),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) =>   MoneyTransfer(
+       amount: newAmount
+       ),));
   }else{
       isBalanceLow =true;
       Timer(const Duration(seconds: 2), () {
