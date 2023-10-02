@@ -45,9 +45,9 @@ class _SendAmountPageState extends State<SendAmountPage> {
       int serviceCharges =0;
    List<TransactionPart> transactions = TransactionPart.getTransactionPart();
 
-  void addtoTransactionlist(List<TransactionPart> transactionList) {
+  void addtoTransactionlist() {
     setState(() {
-      transactionList.add(TransactionPart(
+      TransactionPart.transaction.add(TransactionPart(
         transactiondate: _getCurrentDate(),
         senderbankname: "SadaPay",
         sendername: "Muhammad Suhaib",
@@ -63,6 +63,8 @@ class _SendAmountPageState extends State<SendAmountPage> {
         isSent: true,
       ));
       accountBalance -= widget.amount;
+      // TransactionPart.transaction = transactionList;
+      // print(transactionList);
       Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalScreen(),));
     });
   }
@@ -242,7 +244,7 @@ class _SendAmountPageState extends State<SendAmountPage> {
              ),
           InkWell(
             onTap: (){
-                addtoTransactionlist(transactions);
+                addtoTransactionlist();
             },
             child: Container(
                             width: MediaQuery.of(context).size.width,

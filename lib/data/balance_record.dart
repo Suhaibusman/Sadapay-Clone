@@ -15,3 +15,9 @@ balance
     return balance;
   }
 }
+
+class add{
+  static List addBalance = [];
+  
+
+}

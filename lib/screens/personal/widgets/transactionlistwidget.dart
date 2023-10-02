@@ -14,10 +14,14 @@ class TransactionList extends StatefulWidget {
 
 
 class _TransactionListState extends State<TransactionList> {
-    List<TransactionPart> transaction = [];
+    
+    List transaction  = [];
   void _getTransactionPart() {
     setState(() {
-      transaction = TransactionPart.getTransactionPart();
+      
+      transaction = TransactionPart.transaction;
+      // transaction.reversed;
+      print(transaction.reversed);
     });
   }
 
