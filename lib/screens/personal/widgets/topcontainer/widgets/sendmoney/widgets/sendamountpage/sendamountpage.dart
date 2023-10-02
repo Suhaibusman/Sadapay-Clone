@@ -54,9 +54,15 @@ class _SendAmountPageState extends State<SendAmountPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(children: [
-          Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+             SizedBox(
+                child: Column(
+                  children: [
+                    Container(
             height: 70,
+          
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -93,7 +99,7 @@ class _SendAmountPageState extends State<SendAmountPage> {
               ),
             ),
           ),
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           Container(
             height: MediaQuery.of(context).size.height * 0.4,
             decoration: BoxDecoration(
@@ -103,6 +109,7 @@ class _SendAmountPageState extends State<SendAmountPage> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -183,7 +190,28 @@ class _SendAmountPageState extends State<SendAmountPage> {
                 ],
               ),
             ),
-          )
+          ),
+                  ],
+                ),
+             ),
+          Container(
+                          width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: MyColors.pinkColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child:  Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Center(
+                            child: Text("Send Rs. ${widget.amount}" ,  style: const TextStyle(
+                            fontFamily: "Brandon",
+                            fontSize: 20,
+                            color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                      ),
+
         ]),
       ),
     ));
