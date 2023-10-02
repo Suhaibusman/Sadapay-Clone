@@ -62,7 +62,7 @@ sendButton(){
 }
 receiveButton(){
   if (sendMoney.isNotEmpty) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestMoney(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) =>  RequestMoney(amount: newAmount),));
   }
 }
   @override
@@ -274,7 +274,7 @@ receiveButton(){
                       color: sendMoney.isEmpty? Colors.transparent :Colors.black
                     ),
                     child: const Center(
-                      child: Text("Request",  style: TextStyle(
+                      child: Text("Receive",  style: TextStyle(
                                 fontFamily: "Brandon",
                                color: Colors.white,
                                 fontSize: 22,
