@@ -96,6 +96,7 @@ class _TransactionListState extends State<TransactionList> {
         // color: Colors.grey
       ),
         child: ListView.builder(
+          reverse: true,
           itemCount: transaction.length,
           itemBuilder: (context, index) {
           return GestureDetector(
