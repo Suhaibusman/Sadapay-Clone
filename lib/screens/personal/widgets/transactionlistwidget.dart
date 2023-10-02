@@ -21,7 +21,7 @@ class _TransactionListState extends State<TransactionList> {
       
       transaction = TransactionPart.transaction;
       // transaction.reversed;
-      print(transaction.reversed);
+      // print(transaction.reversed);
     });
   }
 
