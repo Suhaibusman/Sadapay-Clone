@@ -14,6 +14,8 @@ class MoneyTransfer extends StatefulWidget {
 }
 
 class _MoneyTransferState extends State<MoneyTransfer> {
+
+  
   List<SadapayAccountPart> sadapay = [];
   final TextEditingController searchAccountName = TextEditingController();
 
@@ -29,8 +31,8 @@ class _MoneyTransferState extends State<MoneyTransfer> {
     });
   }
     void navigatetonext(int index){
-      setState(() {
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>   SendAmountPage(number: sadapay[index].phonenumber , name:sadapay[index].username ,
+      setState(()  {
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>   SendAmountPage(number: sadapay[index].phonenumber , name:sadapay[index].username , amount: widget.amount ,
         //  amount: widget.amount
          ),));
       });
@@ -133,7 +135,7 @@ class _MoneyTransferState extends State<MoneyTransfer> {
                 height: 20,
               ),
               Text(
-                "QUICK TRANSFER",
+                "QUICK TRANSFER ${widget.amount}",
                 style: TextStyle(
                   letterSpacing: 2,
                     fontFamily: "Brandon",
