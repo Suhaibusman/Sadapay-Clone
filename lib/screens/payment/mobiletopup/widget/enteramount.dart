@@ -24,7 +24,7 @@ class EnterAmountScreen extends StatefulWidget {
 
 class _EnterAmountScreenState extends State<EnterAmountScreen> {
    String? errorMessage;
-
+  
    validateAmount() {
     try {
       final int amount = int.parse(enteramount.text);
@@ -66,7 +66,7 @@ accountbalancecheck(){
     
          
        
-   balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
+   BalancePart.balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
      
         return Text('Amount of Rs. $amount has been deducted. New Balance: Rs. $accountBalance');
         
@@ -98,12 +98,15 @@ titleselector(){
 }
   final TextEditingController enteramount = TextEditingController();
   // Replace with your actual balance
-      List<BalancePart> balance = [];
-  void _getBalancePart() {
+      List balance  = [];
+        void _getBalancePart() {
     setState(() {
       balance = BalancePart.getBalancePart();
     });
   }
+    
+
+
   @override
   Widget build(BuildContext context) {
     _getBalancePart();
@@ -148,31 +151,36 @@ titleselector(){
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
+                  
                   height: 45,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    controller: enteramount,
-                    onChanged: (value) {
-                      setState(() {
-                        errorMessage = null;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      hintText: "Enter amount 100 - 5000",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.5,
-                          color: Colors.black,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: TextField(
+                      
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      controller: enteramount,
+                      onChanged: (value) {
+                        setState(() {
+                          errorMessage = null;
+                        });
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Enter amount 100 - 5000",
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
                         ),
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.5,
-                          color: Colors.black,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.5,
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
                         ),
-                        borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
                   ),
@@ -224,7 +232,7 @@ titleselector(){
                           actions: [
                             TextButton(
                               onPressed: () {
-                                 balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
+                                //  balance.add(BalancePart(image: widget.networkImageAsset, phonenumber: widget.phoneNumber));
                                 Navigator.of(context).pop();
                               },
                               child: const Text('OK'),
